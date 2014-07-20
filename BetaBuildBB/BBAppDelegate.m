@@ -7,7 +7,7 @@
 //
 
 #import "BBAppDelegate.h"
-#import <Parse/Parse.h>
+#import "MMDrawerVisualState.h"
 
 @implementation BBAppDelegate
 
@@ -19,7 +19,13 @@
                   clientKey:@"wr2k1cENCqWqBqNcwXcNmIF4UFl9iA69z55RnATj"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    
+    self.centerDrawerController = (MMDrawerController *)self.window.rootViewController;
+    [self.centerDrawerController setMaximumLeftDrawerWidth:280.0];
+    [self.centerDrawerController setMaximumRightDrawerWidth:280.0];
+    [self.centerDrawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningCenterView];
+    [self.centerDrawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [self.centerDrawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideAndScaleVisualStateBlock]];
+    [self.centerDrawerController setShowsShadow:YES];
     return YES;
 }
 

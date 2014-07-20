@@ -25,6 +25,8 @@
 		3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92335B196861300037BA47 /* BBLoginRootViewController.m */; };
 		3BD4834F1968FDFF00299405 /* BeeMapIcon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */; };
 		91E72CDBE84E42BDAC6F181B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E94057B3393E422194634168 /* libPods.a */; };
+		F870DB72197C70D200E1A779 /* BBLeftDrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F870DB71197C70D200E1A779 /* BBLeftDrawerTableViewController.m */; };
+		F870DB75197C762500E1A779 /* BBRightDrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F870DB74197C762500E1A779 /* BBRightDrawerTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeeMapIcon32.png; sourceTree = "<group>"; };
 		B2FBE3E1967446B38889EE65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E94057B3393E422194634168 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F870DB70197C70D200E1A779 /* BBLeftDrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBLeftDrawerTableViewController.h; path = ../../../../../../Documents/BBLeftDrawerTableViewController.h; sourceTree = "<group>"; };
+		F870DB71197C70D200E1A779 /* BBLeftDrawerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBLeftDrawerTableViewController.m; path = ../../../../../../Documents/BBLeftDrawerTableViewController.m; sourceTree = "<group>"; };
+		F870DB73197C762500E1A779 /* BBRightDrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRightDrawerTableViewController.h; sourceTree = "<group>"; };
+		F870DB74197C762500E1A779 /* BBRightDrawerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRightDrawerTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,10 @@
 			children = (
 				3B92335A196861300037BA47 /* BBLoginRootViewController.h */,
 				3B92335B196861300037BA47 /* BBLoginRootViewController.m */,
+				F870DB70197C70D200E1A779 /* BBLeftDrawerTableViewController.h */,
+				F870DB71197C70D200E1A779 /* BBLeftDrawerTableViewController.m */,
+				F870DB73197C762500E1A779 /* BBRightDrawerTableViewController.h */,
+				F870DB74197C762500E1A779 /* BBRightDrawerTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -317,7 +327,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F870DB75197C762500E1A779 /* BBRightDrawerTableViewController.m in Sources */,
 				3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */,
+				F870DB72197C70D200E1A779 /* BBLeftDrawerTableViewController.m in Sources */,
 				3B92333A19685E050037BA47 /* BBAppDelegate.m in Sources */,
 				3B92333619685E050037BA47 /* main.m in Sources */,
 			);

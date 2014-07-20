@@ -2,29 +2,32 @@ PODS:
   - Bolts (1.1.0)
   - Facebook-iOS-SDK (3.16):
     - Bolts
-  - MMDrawerController (0.5.6):
+  - MMDrawerController (0.4.0):
     - MMDrawerController/Core
     - MMDrawerController/MMDrawerBarButtonItem
     - MMDrawerController/MMDrawerVisualStates
     - MMDrawerController/Subclass
-  - MMDrawerController/Core (0.5.6)
-  - MMDrawerController/MMDrawerBarButtonItem (0.5.6):
+  - MMDrawerController+Storyboard (0.0.1):
+    - MMDrawerController (~> 0.4.0)
+  - MMDrawerController/Core (0.4.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.4.0):
     - MMDrawerController/Core
-  - MMDrawerController/MMDrawerVisualStates (0.5.6):
+  - MMDrawerController/MMDrawerVisualStates (0.4.0):
     - MMDrawerController/Core
-  - MMDrawerController/Subclass (0.5.6):
+  - MMDrawerController/Subclass (0.4.0):
     - MMDrawerController/Core
   - Parse (1.2.19):
     - Facebook-iOS-SDK (~> 3.11)
 
 DEPENDENCIES:
-  - MMDrawerController (~> 0.5.6)
+  - MMDrawerController+Storyboard
   - Parse (~> 1.2)
 
 SPEC CHECKSUMS:
   Bolts: 91c2af8eae1d44e1dd75946a5b0ae04a43ea43e4
   Facebook-iOS-SDK: 82ad03cb9ce568855057e20a099054cf1e34ef12
-  MMDrawerController: 4bae84535ca7a5f4cb55a66a001e6035c3571677
+  MMDrawerController: b3731a50b80a7b2c017ac1c4e20f64724fbca006
+  MMDrawerController+Storyboard: d1bde200dfd22d9caac6187cac4fa4ce62ce0a9b
   Parse: ffebaecaddd32cb52671010f81567c298ff93d04
 
 COCOAPODS: 0.33.1

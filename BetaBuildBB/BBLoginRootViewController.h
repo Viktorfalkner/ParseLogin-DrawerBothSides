@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+#import "UIViewController+MMDrawerController.h"
+#import "MMDrawerBarButtonItem.h"
 
 @interface BBLoginRootViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
+@property (strong, nonatomic) MMDrawerBarButtonItem *leftBarButtonItem;
+@property (strong, nonatomic) MMDrawerBarButtonItem *rightBarButtonItem;
 
 @end

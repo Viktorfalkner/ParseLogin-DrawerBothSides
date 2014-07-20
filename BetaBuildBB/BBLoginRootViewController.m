@@ -46,6 +46,18 @@
         
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+    
+    //Left Drawer Button
+    self.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    [self.leftBarButtonItem setMenuButtonColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem  = self.leftBarButtonItem;
+    
+    //Right Drawer Button
+    self.rightBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
+    [self.rightBarButtonItem setMenuButtonColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    
+//    self.navigationItem.rightBarButtonItem  = self.rightBarButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,16 +143,17 @@
     NSLog(@"User dismissed the signUpViewController");
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
-*/
+#pragma mark - Left Button
+-(void)leftDrawerButtonPress:(id)sender{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    
+}
+
+#pragma mark - Right Button
+-(void)rightDrawerButtonPress:(id)sender{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+    
+}
 
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
