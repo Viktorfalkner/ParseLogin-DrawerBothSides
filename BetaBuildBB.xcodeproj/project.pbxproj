@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B3021DB19687585007B679C /* BBMeetupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3021DA19687585007B679C /* BBMeetupCell.xib */; };
-		3B3021DE19687775007B679C /* BBMeetupLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3021DD19687775007B679C /* BBMeetupLocation.m */; };
 		3B3021E019687927007B679C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3021DF19687927007B679C /* CoreLocation.framework */; };
 		3B3021E21968853A007B679C /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3021E11968853A007B679C /* EventKitUI.framework */; };
-		3B3021E819689B51007B679C /* BBMapLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3021E719689B51007B679C /* BBMapLocationViewController.m */; };
-		3B3021F01968AE01007B679C /* BBMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3021EF1968AE01007B679C /* BBMapTableViewController.m */; };
-		3B6EBC31196C60D80042A09E /* BBAllOneMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EBC30196C60D80042A09E /* BBAllOneMapViewController.m */; };
 		3B92332A19685E050037BA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332919685E050037BA47 /* Foundation.framework */; };
 		3B92332C19685E050037BA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332B19685E050037BA47 /* CoreGraphics.framework */; };
 		3B92332E19685E050037BA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332D19685E050037BA47 /* UIKit.framework */; };
@@ -28,10 +23,6 @@
 		3B92334F19685E050037BA47 /* BetaBuildBBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92334E19685E050037BA47 /* BetaBuildBBTests.m */; };
 		3B92335919685E830037BA47 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B92335819685E830037BA47 /* Storyboard.storyboard */; };
 		3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92335B196861300037BA47 /* BBLoginRootViewController.m */; };
-		3B923363196865340037BA47 /* BBFutureMeetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B923362196865340037BA47 /* BBFutureMeetupViewController.m */; };
-		3B923366196865460037BA47 /* BBAllMeetupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B923365196865460037BA47 /* BBAllMeetupsTableViewController.m */; };
-		3B923369196865560037BA47 /* BBNewMeetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B923368196865560037BA47 /* BBNewMeetupViewController.m */; };
-		3B923375196866810037BA47 /* BBMeetupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B923373196866810037BA47 /* BBMeetupCell.m */; };
 		3BD4834F1968FDFF00299405 /* BeeMapIcon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */; };
 		91E72CDBE84E42BDAC6F181B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E94057B3393E422194634168 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -47,17 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B3021DA19687585007B679C /* BBMeetupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMeetupCell.xib; sourceTree = "<group>"; };
-		3B3021DC19687775007B679C /* BBMeetupLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMeetupLocation.h; sourceTree = "<group>"; };
-		3B3021DD19687775007B679C /* BBMeetupLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMeetupLocation.m; sourceTree = "<group>"; };
 		3B3021DF19687927007B679C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B3021E11968853A007B679C /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
-		3B3021E619689B51007B679C /* BBMapLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMapLocationViewController.h; sourceTree = "<group>"; };
-		3B3021E719689B51007B679C /* BBMapLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMapLocationViewController.m; sourceTree = "<group>"; };
-		3B3021EE1968AE01007B679C /* BBMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMapTableViewController.h; sourceTree = "<group>"; };
-		3B3021EF1968AE01007B679C /* BBMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMapTableViewController.m; sourceTree = "<group>"; };
-		3B6EBC2F196C60D80042A09E /* BBAllOneMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAllOneMapViewController.h; sourceTree = "<group>"; };
-		3B6EBC30196C60D80042A09E /* BBAllOneMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAllOneMapViewController.m; sourceTree = "<group>"; };
 		3B92332619685E050037BA47 /* BetaBuildBB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaBuildBB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B92332919685E050037BA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B92332B19685E050037BA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,14 +59,6 @@
 		3B92335819685E830037BA47 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		3B92335A196861300037BA47 /* BBLoginRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoginRootViewController.h; sourceTree = "<group>"; };
 		3B92335B196861300037BA47 /* BBLoginRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginRootViewController.m; sourceTree = "<group>"; };
-		3B923361196865340037BA47 /* BBFutureMeetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBFutureMeetupViewController.h; path = ../BBFutureMeetupViewController.h; sourceTree = "<group>"; };
-		3B923362196865340037BA47 /* BBFutureMeetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBFutureMeetupViewController.m; path = ../BBFutureMeetupViewController.m; sourceTree = "<group>"; };
-		3B923364196865460037BA47 /* BBAllMeetupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAllMeetupsTableViewController.h; path = ../BBAllMeetupsTableViewController.h; sourceTree = "<group>"; };
-		3B923365196865460037BA47 /* BBAllMeetupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAllMeetupsTableViewController.m; path = ../BBAllMeetupsTableViewController.m; sourceTree = "<group>"; };
-		3B923367196865560037BA47 /* BBNewMeetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBNewMeetupViewController.h; path = ../BBNewMeetupViewController.h; sourceTree = "<group>"; };
-		3B923368196865560037BA47 /* BBNewMeetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBNewMeetupViewController.m; path = ../BBNewMeetupViewController.m; sourceTree = "<group>"; };
-		3B923372196866810037BA47 /* BBMeetupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMeetupCell.h; sourceTree = "<group>"; };
-		3B923373196866810037BA47 /* BBMeetupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMeetupCell.m; sourceTree = "<group>"; };
 		3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeeMapIcon32.png; sourceTree = "<group>"; };
 		B2FBE3E1967446B38889EE65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E94057B3393E422194634168 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,8 +131,6 @@
 				3B92335819685E830037BA47 /* Storyboard.storyboard */,
 				3B92333819685E050037BA47 /* BBAppDelegate.h */,
 				3B92333919685E050037BA47 /* BBAppDelegate.m */,
-				3B9233601968650D0037BA47 /* Models */,
-				3B92335F196865070037BA47 /* Views */,
 				3B92335D196864F20037BA47 /* Controllers */,
 				3B92333B19685E050037BA47 /* Images.xcassets */,
 				3BD4834D1968FDE300299405 /* Resources */,
@@ -199,41 +171,10 @@
 		3B92335D196864F20037BA47 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B3021EE1968AE01007B679C /* BBMapTableViewController.h */,
-				3B3021EF1968AE01007B679C /* BBMapTableViewController.m */,
-				3B3021E619689B51007B679C /* BBMapLocationViewController.h */,
-				3B3021E719689B51007B679C /* BBMapLocationViewController.m */,
 				3B92335A196861300037BA47 /* BBLoginRootViewController.h */,
 				3B92335B196861300037BA47 /* BBLoginRootViewController.m */,
-				3B923361196865340037BA47 /* BBFutureMeetupViewController.h */,
-				3B923362196865340037BA47 /* BBFutureMeetupViewController.m */,
-				3B923364196865460037BA47 /* BBAllMeetupsTableViewController.h */,
-				3B923365196865460037BA47 /* BBAllMeetupsTableViewController.m */,
-				3B923367196865560037BA47 /* BBNewMeetupViewController.h */,
-				3B923368196865560037BA47 /* BBNewMeetupViewController.m */,
-				3B6EBC2F196C60D80042A09E /* BBAllOneMapViewController.h */,
-				3B6EBC30196C60D80042A09E /* BBAllOneMapViewController.m */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		3B92335F196865070037BA47 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3B3021DA19687585007B679C /* BBMeetupCell.xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		3B9233601968650D0037BA47 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3B923372196866810037BA47 /* BBMeetupCell.h */,
-				3B923373196866810037BA47 /* BBMeetupCell.m */,
-				3B3021DC19687775007B679C /* BBMeetupLocation.h */,
-				3B3021DD19687775007B679C /* BBMeetupLocation.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		3BD4834D1968FDE300299405 /* Resources */ = {
@@ -322,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B92333419685E050037BA47 /* InfoPlist.strings in Resources */,
-				3B3021DB19687585007B679C /* BBMeetupCell.xib in Resources */,
 				3B92333C19685E050037BA47 /* Images.xcassets in Resources */,
 				3B92335919685E830037BA47 /* Storyboard.storyboard in Resources */,
 				3BD4834F1968FDFF00299405 /* BeeMapIcon32.png in Resources */,
@@ -377,17 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B3021F01968AE01007B679C /* BBMapTableViewController.m in Sources */,
 				3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */,
-				3B6EBC31196C60D80042A09E /* BBAllOneMapViewController.m in Sources */,
-				3B923375196866810037BA47 /* BBMeetupCell.m in Sources */,
-				3B3021DE19687775007B679C /* BBMeetupLocation.m in Sources */,
 				3B92333A19685E050037BA47 /* BBAppDelegate.m in Sources */,
 				3B92333619685E050037BA47 /* main.m in Sources */,
-				3B923369196865560037BA47 /* BBNewMeetupViewController.m in Sources */,
-				3B923363196865340037BA47 /* BBFutureMeetupViewController.m in Sources */,
-				3B923366196865460037BA47 /* BBAllMeetupsTableViewController.m in Sources */,
-				3B3021E819689B51007B679C /* BBMapLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
