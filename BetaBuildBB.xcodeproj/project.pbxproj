@@ -29,6 +29,7 @@
 		774C2AF2197C8348006DCC87 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774C2AF1197C8348006DCC87 /* MapKit.framework */; };
 		774C2AF5197C92B2006DCC87 /* BBCreateMeetingNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C2AF4197C92B2006DCC87 /* BBCreateMeetingNowViewController.m */; };
 		774C2AF8197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */; };
+		77FB73611984554E00104E58 /* BBMeetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB73601984554E00104E58 /* BBMeetup.m */; };
 		91E72CDBE84E42BDAC6F181B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E94057B3393E422194634168 /* libPods.a */; };
 		F870DB75197C762500E1A779 /* BBRightDrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F870DB74197C762500E1A779 /* BBRightDrawerTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		774C2AF4197C92B2006DCC87 /* BBCreateMeetingNowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCreateMeetingNowViewController.m; sourceTree = "<group>"; };
 		774C2AF6197C92F1006DCC87 /* BBCreateMeetingLaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCreateMeetingLaterViewController.h; sourceTree = "<group>"; };
 		774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCreateMeetingLaterViewController.m; sourceTree = "<group>"; };
+		77FB735F1984554E00104E58 /* BBMeetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMeetup.h; sourceTree = "<group>"; };
+		77FB73601984554E00104E58 /* BBMeetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMeetup.m; sourceTree = "<group>"; };
 		B2FBE3E1967446B38889EE65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E94057B3393E422194634168 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F870DB73197C762500E1A779 /* BBRightDrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRightDrawerTableViewController.h; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 				774C2AF4197C92B2006DCC87 /* BBCreateMeetingNowViewController.m */,
 				774C2AF6197C92F1006DCC87 /* BBCreateMeetingLaterViewController.h */,
 				774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */,
+				77FB73621984555200104E58 /* Models */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -212,6 +216,15 @@
 				3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		77FB73621984555200104E58 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				77FB735F1984554E00104E58 /* BBMeetup.h */,
+				77FB73601984554E00104E58 /* BBMeetup.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +367,7 @@
 				3B92333619685E050037BA47 /* main.m in Sources */,
 				774C2AF5197C92B2006DCC87 /* BBCreateMeetingNowViewController.m in Sources */,
 				774C2AF8197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m in Sources */,
+				77FB73611984554E00104E58 /* BBMeetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

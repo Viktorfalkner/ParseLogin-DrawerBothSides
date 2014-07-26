@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBCreateMeetingLaterViewController : UIViewController
+@interface BBCreateMeetingLaterViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 
 @end
