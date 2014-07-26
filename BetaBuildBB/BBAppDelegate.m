@@ -20,12 +20,17 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     self.centerDrawerController = (MMDrawerController *)self.window.rootViewController;
+    
     [self.centerDrawerController setMaximumLeftDrawerWidth:280.0];
     [self.centerDrawerController setMaximumRightDrawerWidth:280.0];
+    
     [self.centerDrawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningCenterView];
+    
     [self.centerDrawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
     [self.centerDrawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideAndScaleVisualStateBlock]];
     [self.centerDrawerController setShowsShadow:YES];
+    
     return YES;
 }
 
