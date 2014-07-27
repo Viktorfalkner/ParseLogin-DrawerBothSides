@@ -10,6 +10,11 @@
 
 @interface BBMeetupLocationDataStore : NSObject
 
-@property (strong, nonatomic) NSMutableArray *bbMeetUpsArray;
+@property (strong, nonatomic) NSMutableArray *meetUpsArray;
+
++ (instancetype)sharedDataStore;
+
+-(instancetype)init;
+
 
 @end

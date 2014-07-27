@@ -23,7 +23,26 @@
 
 - (IBAction)createNewMeetup:(id)sender
 {
+    BBMeetupLocationDataStore *store = [BBMeetupLocationDataStore sharedDataStore];
     
+    NSNumber *latitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
+    
+    NSNumber *longitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
+    
+    BBMeetup *newMeetup = [[BBMeetup alloc]
+                           initWithUserID:[NSString stringWithFormat:@"%@",[PFUser currentUser]]
+                           MeetingName:self.meetupName.text
+                           withLocationName:self.meetupLocation.text
+                           withStartTime:[NSDate date]
+                           withEndTime:[[NSDate date] dateByAddingTimeInterval:60*60]
+                           withLatidue:latitudeNumber
+                           withLongitude:longitudeNumber];
+    
+    [BBMeetup createMeetupInParse:newMeetup];
+    
+    [store.meetUpsArray addObject:newMeetup];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,20 +78,7 @@
 
 -(void)createANewMeetup
 {
-    NSNumber *latitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
-    
-    NSNumber *longitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
-    
-    BBMeetup *newMeetup = [[BBMeetup alloc]
-                           initWithUserID:[NSString stringWithFormat:@"%@",[PFUser currentUser]]
-                           MeetingName:self.meetupName.text
-                           withLocationName:self.meetupLocation.text
-                           withStartTime:[NSDate date]
-                           withEndTime:[NSDate date]
-                           withLatidue:latitudeNumber
-                           withLongitude:longitudeNumber];
-    
-    [BBMeetup createMeetupInParse:newMeetup];
+
     
     
 }

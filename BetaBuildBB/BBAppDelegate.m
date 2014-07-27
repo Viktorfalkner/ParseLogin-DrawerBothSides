@@ -15,8 +15,8 @@
 {
     [self.window makeKeyAndVisible];
     // BetaBuildBB App ID and Client ID
-    [Parse setApplicationId:@"7tNCkeRoWa6aKUk9Sqp7Ov2ysHkIaiTIhTcHjijr"
-                  clientKey:@"wr2k1cENCqWqBqNcwXcNmIF4UFl9iA69z55RnATj"];
+    [Parse setApplicationId:@"PQHS5Gkteyag1gmLhUSaQ6m2s23TFqKDAlWVcKC2"
+                  clientKey:@"unmM7jy3sPjILQR9IU5T6XAWVrGSv9WVyy6GPFoS"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     self.centerDrawerController = (MMDrawerController *)self.window.rootViewController;

@@ -43,6 +43,13 @@
 {
     [super viewDidAppear:animated];
     
+    self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+    
+    
+    [self plotAllMeetUpsOnMap:self.dataStore.meetUpsArray];
+    NSLog(@"$%@",self.dataStore.meetUpsArray);
+    
+    
     if (![PFUser currentUser]) {
         
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
@@ -67,6 +74,8 @@
     [self.rightBarButtonItem setMenuButtonColor:[UIColor yellowColor] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem  = self.rightBarButtonItem;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -200,4 +209,25 @@
     
     [self.mapOutlet setRegion:region animated:YES];
 }
+-(void)plotMeetupOnMap:(BBMeetup *)meetUpToBePlotted
+{
+    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+    
+    double longitudeDouble = [meetUpToBePlotted.longitude doubleValue];
+    double latitudeDouble = [meetUpToBePlotted.latitude doubleValue];
+    
+    point.coordinate = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble);
+    point.title = meetUpToBePlotted.userID;
+    point.subtitle = meetUpToBePlotted.meetingName;
+    [self.mapOutlet addAnnotation:point];
+}
+-(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups
+{
+    for (BBMeetup *meetup in arrayOfMeetups)
+    {
+        [self plotMeetupOnMap:meetup];
+    }
+}
+
+
 @end

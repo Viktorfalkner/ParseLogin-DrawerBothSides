@@ -7,6 +7,7 @@
 //
 
 #import "BBMainScreenViewController.h"
+#import "BBMeetupLocationDataStore.h"
 
 @interface BBMainScreenViewController ()
 
@@ -36,6 +37,9 @@
 {
     [super viewDidAppear:animated];
     
+    BBMeetupLocationDataStore *store = [BBMeetupLocationDataStore sharedDataStore];
+
+    [self plotAllMeetUpsOnMap:store.meetUpsArray];
  
     
 }
@@ -50,6 +54,7 @@
     
     double longitudeDouble = [meetUpToBePlotted.longitude doubleValue];
     double latitudeDouble = [meetUpToBePlotted.latitude doubleValue];
+    
     point.coordinate = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble);
     point.title = meetUpToBePlotted.userID;
     point.subtitle = meetUpToBePlotted.meetingName;

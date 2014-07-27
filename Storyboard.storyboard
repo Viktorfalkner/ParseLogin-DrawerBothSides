@@ -35,7 +35,7 @@
                                 <items>
                                     <barButtonItem title="New Meeting now" style="plain" id="sAl-jO-5B5">
                                         <connections>
-                                            <segue destination="eD7-x7-VMA" kind="push" id="b7C-lM-ibB"/>
+                                            <segue destination="eD7-x7-VMA" kind="push" id="ScE-U6-EHD"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="New Meeting Later" id="efP-PZ-lp5">
@@ -124,7 +124,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bj-EA-N6u">
-                                <rect key="frame" x="102" y="347" width="116" height="41"/>
+                                <rect key="frame" x="102" y="293" width="116" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Meeting">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ME0-mQ-Ri6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1435" y="-393"/>
+            <point key="canvasLocation" x="1622" y="-85"/>
         </scene>
         <!--Left Drawer Table View Controller-->
         <scene sceneID="90e-eu-1bd">

@@ -20,6 +20,14 @@
     
     return _sharedDataStore;
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _meetUpsArray = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
 
 
 @end
