@@ -7,6 +7,7 @@
 //
 
 #import "BBLeftDrawerTableViewController.h"
+#import "BBMeetup.h"
 
 @interface BBLeftDrawerTableViewController ()
 
@@ -27,13 +28,28 @@
 {
     [super viewDidLoad];
     
-    self.leftDrawerOptions = @[@"One", @"Two", @"Three", @"Four"];
+    self.leftDrawerOptions = [[NSMutableArray alloc]init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    PFQuery *allMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
+    [allMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (PFObject *pfMeetup in objects)
+        {
+           BBMeetup *meetupToAdd = [BBMeetup makePFObjectintoBBMeetup:pfMeetup];
+            [self.leftDrawerOptions addObject:meetupToAdd];
+            
+        }
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,8 +76,10 @@
     static NSString *CellIdentifier = @"LeftDrawerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    BBMeetup *meetupToDisplayInTableView = self.leftDrawerOptions[indexPath.row];
     
-    cell.textLabel.text = self.leftDrawerOptions[indexPath.row];
+    
+    cell.textLabel.text = meetupToDisplayInTableView.meetingName;
     // Configure the cell...
     
     return cell;

@@ -10,6 +10,6 @@
 
 @interface BBLeftDrawerTableViewController : UITableViewController
 
-@property (strong,nonatomic) NSArray *leftDrawerOptions;
+@property (strong,nonatomic) NSMutableArray *leftDrawerOptions;
 
 @end

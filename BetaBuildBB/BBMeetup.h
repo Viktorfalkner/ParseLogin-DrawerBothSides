@@ -39,6 +39,7 @@
 
 
 +(void)createMeetupInParse:(BBMeetup *)newMeetupLocation;
++(BBMeetup *)makePFObjectintoBBMeetup:(PFObject *)objectFromParse;
 
 
 

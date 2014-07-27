@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     
+
     
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];

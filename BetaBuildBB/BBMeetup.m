@@ -16,6 +16,8 @@
 return [self initWithUserID:@""
                 MeetingName:@""
            withLocationName:@""
+              withClassName:@""
+           withActivityType:@""
               withStartTime:[NSDate date]
                 withEndTime:[NSDate date]
                 withLatidue:@0
@@ -67,15 +69,25 @@ return [self initWithUserID:@""
     meetupLocationToStore[@"endTime"] = newMeetupLocation.endTime;
     meetupLocationToStore[@"longitudeValue"] = newMeetupLocation.longitude;
     meetupLocationToStore[@"latitudeValue"] = newMeetupLocation.latitude;
-
-    
-
-    
-    
-    
-    
     
     [meetupLocationToStore saveInBackground];
+}
++(BBMeetup *)makePFObjectintoBBMeetup:(PFObject *)objectFromParse
+{
+    BBMeetup *newMeetup = [[BBMeetup alloc]init];
+    
+    newMeetup.userID = objectFromParse[@"userID"];
+    newMeetup.meetingName =  objectFromParse[@"meetingName"];
+    newMeetup.locationName =  objectFromParse[@"locationName"];
+    newMeetup.className = objectFromParse[@"className"];
+    newMeetup.activityType = objectFromParse[@"activityType"];
+    newMeetup.startTime = objectFromParse[@"startTime"];
+    newMeetup.endTime = objectFromParse[@"endTime"];
+    newMeetup.longitude = objectFromParse[@"longitudeValue"];
+    newMeetup.latitude = objectFromParse[@"latitudeValue"];
+    
+    return newMeetup;
+    
 }
 
 
