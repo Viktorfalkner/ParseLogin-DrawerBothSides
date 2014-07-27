@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
     
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    
     self.leftDrawerOptions = [[NSMutableArray alloc]init];
     
     // Uncomment the following line to preserve selection between presentations.
