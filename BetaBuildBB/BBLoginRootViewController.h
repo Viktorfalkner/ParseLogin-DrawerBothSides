@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) BBMeetupLocationDataStore *dataStore;
-
 @property (strong, nonatomic) NSMutableArray *meetupArray;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;

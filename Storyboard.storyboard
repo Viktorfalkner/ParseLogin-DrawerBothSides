@@ -144,10 +144,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="NTB-f3-YS7"/>
                     <connections>
+                        <outlet property="meetupActivity" destination="aNI-NX-hIw" id="AbT-wI-yOg"/>
+                        <outlet property="meetupClass" destination="dnU-JO-nc9" id="jYu-T0-OAH"/>
                         <outlet property="meetupLocation" destination="MSg-eg-V3i" id="rg8-nF-wt8"/>
                         <outlet property="meetupName" destination="gRW-3s-5zc" id="Ea0-Gf-XRN"/>
-                        <outlet property="meetupStudyType" destination="aNI-NX-hIw" id="1mz-rV-APL"/>
-                        <outlet property="meetupSubject" destination="dnU-JO-nc9" id="D3g-ZY-baY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ME0-mQ-Ri6" userLabel="First Responder" sceneMemberID="firstResponder"/>

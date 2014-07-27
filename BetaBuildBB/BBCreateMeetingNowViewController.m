@@ -10,8 +10,8 @@
 
 @interface BBCreateMeetingNowViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *meetupName;
-@property (weak, nonatomic) IBOutlet UITextField *meetupSubject;
-@property (weak, nonatomic) IBOutlet UITextField *meetupStudyType;
+@property (weak, nonatomic) IBOutlet UITextField *meetupClass;
+@property (weak, nonatomic) IBOutlet UITextField *meetupActivity;
 @property (weak, nonatomic) IBOutlet UITextField *meetupLocation;
 
 
@@ -25,6 +25,8 @@
 {
     BBMeetupLocationDataStore *store = [BBMeetupLocationDataStore sharedDataStore];
     
+    self.locationManager = [[CLLocationManager alloc]init];
+    
     NSNumber *latitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
     
     NSNumber *longitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
@@ -33,6 +35,8 @@
                            initWithUserID:[NSString stringWithFormat:@"%@",[PFUser currentUser]]
                            MeetingName:self.meetupName.text
                            withLocationName:self.meetupLocation.text
+                           withClassName:self.meetupClass.text
+                           withActivityType:self.meetupActivity.text
                            withStartTime:[NSDate date]
                            withEndTime:[[NSDate date] dateByAddingTimeInterval:60*60]
                            withLatidue:latitudeNumber

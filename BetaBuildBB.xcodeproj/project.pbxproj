@@ -151,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				3B92335819685E830037BA47 /* Storyboard.storyboard */,
-				3B92333819685E050037BA47 /* BBAppDelegate.h */,
-				3B92333919685E050037BA47 /* BBAppDelegate.m */,
+				77401B7B19848F15000F34EA /* Delegate */,
+				77401B7C19848F1D000F34EA /* Datastore */,
 				3B92335D196864F20037BA47 /* Controllers */,
 				3B92333B19685E050037BA47 /* Images.xcassets */,
 				3BD4834D1968FDE300299405 /* Resources */,
@@ -203,8 +203,6 @@
 				774C2AF4197C92B2006DCC87 /* BBCreateMeetingNowViewController.m */,
 				774C2AF6197C92F1006DCC87 /* BBCreateMeetingLaterViewController.h */,
 				774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */,
-				77401B78198482CD000F34EA /* BBMeetupLocationDataStore.h */,
-				77401B79198482CD000F34EA /* BBMeetupLocationDataStore.m */,
 				77FB73621984555200104E58 /* Models */,
 			);
 			name = Controllers;
@@ -216,6 +214,24 @@
 				3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		77401B7B19848F15000F34EA /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				3B92333819685E050037BA47 /* BBAppDelegate.h */,
+				3B92333919685E050037BA47 /* BBAppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		77401B7C19848F1D000F34EA /* Datastore */ = {
+			isa = PBXGroup;
+			children = (
+				77401B78198482CD000F34EA /* BBMeetupLocationDataStore.h */,
+				77401B79198482CD000F34EA /* BBMeetupLocationDataStore.m */,
+			);
+			name = Datastore;
 			sourceTree = "<group>";
 		};
 		77FB73621984555200104E58 /* Models */ = {

@@ -20,6 +20,9 @@
 @property (strong, nonatomic) NSDate *endTime;
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSString *className;
+@property (strong, nonatomic) NSString *activityType;
+
 
 
 -(instancetype)init;
@@ -27,6 +30,8 @@
 - (instancetype)initWithUserID:(NSString *)userID
                    MeetingName:(NSString *)meetingName
               withLocationName:(NSString *)locationName
+                 withClassName:(NSString *)className
+              withActivityType:(NSString *)activityType
                  withStartTime:(NSDate *)startTime
                    withEndTime:(NSDate *)endTime
                    withLatidue:(NSNumber *)latitude

@@ -25,6 +25,8 @@ return [self initWithUserID:@""
 - (instancetype)initWithUserID:(NSString *)userID
                    MeetingName:(NSString *)meetingName
               withLocationName:(NSString *)locationName
+                 withClassName:(NSString *)className
+              withActivityType:(NSString *)activityType
                  withStartTime:(NSDate *)startTime
                    withEndTime:(NSDate *)endTime
                    withLatidue:(NSNumber *)latitude
@@ -35,6 +37,8 @@ return [self initWithUserID:@""
         _userID = userID;
         _meetingName = meetingName;
         _locationName = locationName;
+        _className = className;
+        _activityType = activityType;
         _startTime = startTime;
         _endTime = endTime;
         _latitude = latitude;
@@ -57,10 +61,19 @@ return [self initWithUserID:@""
     meetupLocationToStore[@"userID"] = currentUser.objectId;
     meetupLocationToStore[@"meetingName"] = newMeetupLocation.meetingName;
     meetupLocationToStore[@"locationName"] = newMeetupLocation.locationName;
+    meetupLocationToStore[@"className"] = newMeetupLocation.className;
+    meetupLocationToStore[@"activityType"] = newMeetupLocation.activityType;
     meetupLocationToStore[@"startTime"] = newMeetupLocation.startTime;
     meetupLocationToStore[@"endTime"] = newMeetupLocation.endTime;
     meetupLocationToStore[@"longitudeValue"] = newMeetupLocation.longitude;
     meetupLocationToStore[@"latitudeValue"] = newMeetupLocation.latitude;
+
+    
+
+    
+    
+    
+    
     
     [meetupLocationToStore saveInBackground];
 }

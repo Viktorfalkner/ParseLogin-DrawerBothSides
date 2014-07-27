@@ -12,6 +12,7 @@
 - (IBAction)logout:(id)sender;
 
 - (IBAction)refreshButton:(id)sender;
+
 @property (weak, nonatomic) IBOutlet MKMapView *mapOutlet;
 
 @end
@@ -31,8 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.locationManager = [[CLLocationManager alloc]init];
     
+    
+    self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];
     self.mapOutlet.delegate = self;
     self.mapOutlet.showsUserLocation = YES;
@@ -46,8 +48,7 @@
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     
     
-    [self plotAllMeetUpsOnMap:self.dataStore.meetUpsArray];
-    NSLog(@"$%@",self.dataStore.meetUpsArray);
+
     
     
     if (![PFUser currentUser]) {
@@ -223,6 +224,29 @@
 }
 -(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups
 {
+    if (self.dataStore.meetUpsArray == nil)
+    {
+        PFQuery *meetings = [PFQuery queryWithClassName:@"BBMeetup"];
+        
+        [meetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSArray *meetups = objects;
+            for (BBMeetup *meetup in meetups)
+            {
+                [self.dataStore.meetUpsArray addObject:meetups];
+    
+            }
+            [self plotAllMeetUpsOnMap:self.dataStore.meetUpsArray];
+            NSLog(@"%@",self.dataStore.meetUpsArray);
+        }];
+        [self.mapOutlet reloadInputViews];
+        
+    }
+//    PFQuery *query = [PFQuery queryWithClassName:@"BBMeetupLocation"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        _meetupsArray = objects;
+//        [self.tableView reloadData];
+//    }];
+
     for (BBMeetup *meetup in arrayOfMeetups)
     {
         [self plotMeetupOnMap:meetup];
