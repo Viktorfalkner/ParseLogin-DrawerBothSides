@@ -27,10 +27,7 @@
 {
     [super viewDidLoad];
     
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.delegate = self;
-    
-    [self.locationManager startUpdatingLocation];
+
     
     // Do any additional setup after loading the view.
 }

@@ -39,7 +39,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)getCurrentLocation
+{
+    CLLocationManager *manager = [[CLLocationManager alloc]init];
+    
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager startUpdatingLocation];
+    
+}
 
+-(void)createANewMeetup
+{
+
+    
+}
 /*
 #pragma mark - Navigation
 

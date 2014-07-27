@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface BBMeetup : NSObject
 
@@ -18,6 +21,7 @@
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
 
+
 -(instancetype)init;
 
 - (instancetype)initWithUserID:(NSString *)userID
@@ -27,6 +31,13 @@
                    withEndTime:(NSDate *)endTime
                    withLatidue:(NSNumber *)latitude
                  withLongitude:(NSNumber *)longitude;
+
+
++(void)createMeetupInParse:(BBMeetup *)newMeetupLocation;
+
+
+
+
 
 
 

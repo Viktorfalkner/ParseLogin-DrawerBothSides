@@ -44,6 +44,22 @@ return [self initWithUserID:@""
     return self;
 }
 
++(void)createMeetupInParse:(BBMeetup *)newMeetupLocation
+{
+    PFObject *meetupLocationToStore = [PFObject objectWithClassName:@"BBMeetup"];
+    PFUser *currentUser = [PFUser currentUser];
+    
+    meetupLocationToStore[@"userID"] = currentUser.objectId;
+    meetupLocationToStore[@"meetingName"] = newMeetupLocation.meetingName;
+    meetupLocationToStore[@"locationName"] = newMeetupLocation.locationName;
+    meetupLocationToStore[@"startTime"] = newMeetupLocation.startTime;
+    meetupLocationToStore[@"endTime"] = newMeetupLocation.endTime;
+    meetupLocationToStore[@"longitudeValue"] = newMeetupLocation.longitude;
+    meetupLocationToStore[@"latitudeValue"] = newMeetupLocation.latitude;
+    meetupLocationToStore[@"userPointer"] = newMeetupLocation.userID;
+    
+    [meetupLocationToStore saveInBackground];
+}
 
 
 

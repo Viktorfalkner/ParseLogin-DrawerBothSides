@@ -27,15 +27,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.mapOutlet.delegate = self;
+
+
     
     // Do any additional setup after loading the view.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+ 
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)plotMeetupOnMap:(BBMeetup *)meetUpToBePlotted
+{
+    MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
+    
+    double longitudeDouble = [meetUpToBePlotted.longitude doubleValue];
+    double latitudeDouble = [meetUpToBePlotted.latitude doubleValue];
+    point.coordinate = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble);
+    point.title = meetUpToBePlotted.userID;
+    point.subtitle = meetUpToBePlotted.meetingName;
+    [self.mapOutlet addAnnotation:point];
+}
+-(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups
+{
+    for (BBMeetup *meetup in arrayOfMeetups)
+    {
+        [self plotMeetupOnMap:meetup];
+    }
 }
 
 /*

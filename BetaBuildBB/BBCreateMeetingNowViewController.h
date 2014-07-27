@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBCreateMeetingNowViewController : UIViewController
+@interface BBCreateMeetingNowViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+
+-(void)getCurrentLocation;
+
 
 @end

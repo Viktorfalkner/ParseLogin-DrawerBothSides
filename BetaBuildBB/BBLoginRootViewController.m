@@ -11,6 +11,9 @@
 @interface BBLoginRootViewController ()
 - (IBAction)logout:(id)sender;
 
+- (IBAction)refreshButton:(id)sender;
+@property (weak, nonatomic) IBOutlet MKMapView *mapOutlet;
+
 @end
 
 @implementation BBLoginRootViewController
@@ -28,6 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.locationManager = [[CLLocationManager alloc]init];
+    
+    [self.locationManager startUpdatingLocation];
+    self.mapOutlet.delegate = self;
+    self.mapOutlet.showsUserLocation = YES;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -159,5 +168,36 @@
     [PFUser logOut];
     [self viewDidAppear:YES];
 
+}
+
+- (IBAction)refreshButton:(id)sender
+{
+
+    CLLocation *locationToDisplay = [self.locationManager location];
+    
+    MKPointAnnotation *pointOnMap = [[MKPointAnnotation alloc]init];
+    
+    pointOnMap.coordinate = locationToDisplay.coordinate;
+ 
+    
+//  pointOnMap.coordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
+    
+    NSLog(@"LAT :%f, LONG: %f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
+    
+    [self.mapOutlet addAnnotation:pointOnMap];
+    
+    [self.mapOutlet setCenterCoordinate:pointOnMap.coordinate animated:YES];
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    self.location = locations.lastObject;
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    CLLocationCoordinate2D coord = self.mapOutlet.userLocation.location.coordinate;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 1500.0, 1500.0);
+    
+    [self.mapOutlet setRegion:region animated:YES];
 }
 @end
