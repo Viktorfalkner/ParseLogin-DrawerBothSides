@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BBMeetup.h"
+#import <Parse/Parse.h>
+#import <CoreLocation/CoreLocation.h>
+#import "BBMeetupLocationDataStore.h"
 
 @interface BBCreateMeetingNowViewController : UIViewController <CLLocationManagerDelegate>
 

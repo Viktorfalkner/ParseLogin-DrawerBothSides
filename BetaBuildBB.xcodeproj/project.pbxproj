@@ -24,6 +24,7 @@
 		3B92335919685E830037BA47 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B92335819685E830037BA47 /* Storyboard.storyboard */; };
 		3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92335B196861300037BA47 /* BBLoginRootViewController.m */; };
 		3BD4834F1968FDFF00299405 /* BeeMapIcon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */; };
+		77401B7A198482CD000F34EA /* BBMeetupLocationDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77401B79198482CD000F34EA /* BBMeetupLocationDataStore.m */; };
 		774C2AED197C7B9A006DCC87 /* BBLeftDrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C2AEC197C7B9A006DCC87 /* BBLeftDrawerTableViewController.m */; };
 		774C2AF0197C824B006DCC87 /* BBMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C2AEF197C824B006DCC87 /* BBMainScreenViewController.m */; };
 		774C2AF2197C8348006DCC87 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774C2AF1197C8348006DCC87 /* MapKit.framework */; };
@@ -67,6 +68,8 @@
 		3B92335A196861300037BA47 /* BBLoginRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoginRootViewController.h; sourceTree = "<group>"; };
 		3B92335B196861300037BA47 /* BBLoginRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginRootViewController.m; sourceTree = "<group>"; };
 		3BD4834E1968FDFF00299405 /* BeeMapIcon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeeMapIcon32.png; sourceTree = "<group>"; };
+		77401B78198482CD000F34EA /* BBMeetupLocationDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMeetupLocationDataStore.h; sourceTree = "<group>"; };
+		77401B79198482CD000F34EA /* BBMeetupLocationDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMeetupLocationDataStore.m; sourceTree = "<group>"; };
 		774C2AEB197C7B9A006DCC87 /* BBLeftDrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeftDrawerTableViewController.h; sourceTree = "<group>"; };
 		774C2AEC197C7B9A006DCC87 /* BBLeftDrawerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLeftDrawerTableViewController.m; sourceTree = "<group>"; };
 		774C2AEE197C824B006DCC87 /* BBMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainScreenViewController.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				774C2AF4197C92B2006DCC87 /* BBCreateMeetingNowViewController.m */,
 				774C2AF6197C92F1006DCC87 /* BBCreateMeetingLaterViewController.h */,
 				774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */,
+				77401B78198482CD000F34EA /* BBMeetupLocationDataStore.h */,
+				77401B79198482CD000F34EA /* BBMeetupLocationDataStore.m */,
 				77FB73621984555200104E58 /* Models */,
 			);
 			name = Controllers;
@@ -367,6 +372,7 @@
 				3B92333619685E050037BA47 /* main.m in Sources */,
 				774C2AF5197C92B2006DCC87 /* BBCreateMeetingNowViewController.m in Sources */,
 				774C2AF8197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m in Sources */,
+				77401B7A198482CD000F34EA /* BBMeetupLocationDataStore.m in Sources */,
 				77FB73611984554E00104E58 /* BBMeetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

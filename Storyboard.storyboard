@@ -98,27 +98,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Homework, Test, or general study?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNI-NX-hIw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Homework, Test, or general study?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNI-NX-hIw">
                                 <rect key="frame" x="47" y="204" width="227" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where? Building, Study Room #" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSg-eg-V3i">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where? Building, Study Room #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSg-eg-V3i">
                                 <rect key="frame" x="47" y="255" width="227" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a new Meetp-Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0V-TK-IBy">
-                                <rect key="frame" x="18" y="98" width="284" height="22"/>
+                                <rect key="frame" x="18" y="71" width="284" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What subject are you studying?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnU-JO-nc9">
-                                <rect key="frame" x="47" y="148" width="227" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What subject are you studying?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnU-JO-nc9">
+                                <rect key="frame" x="47" y="155" width="227" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -133,14 +133,21 @@
                                     <action selector="createNewMeetup:" destination="eD7-x7-VMA" eventType="touchUpInside" id="O3e-gi-mPD"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of your Meet-Up" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRW-3s-5zc">
+                                <rect key="frame" x="47" y="110" width="227" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NTB-f3-YS7"/>
                     <connections>
-                        <outlet property="typeOfStudy" destination="aNI-NX-hIw" id="J2m-kx-0NE"/>
-                        <outlet property="whatYouStudying" destination="dnU-JO-nc9" id="qeg-Cg-Bvz"/>
-                        <outlet property="whereAreYouStudying" destination="MSg-eg-V3i" id="v0W-xd-BvU"/>
+                        <outlet property="meetupLocation" destination="MSg-eg-V3i" id="rg8-nF-wt8"/>
+                        <outlet property="meetupName" destination="gRW-3s-5zc" id="Ea0-Gf-XRN"/>
+                        <outlet property="meetupStudyType" destination="aNI-NX-hIw" id="1mz-rV-APL"/>
+                        <outlet property="meetupSubject" destination="dnU-JO-nc9" id="D3g-ZY-baY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ME0-mQ-Ri6" userLabel="First Responder" sceneMemberID="firstResponder"/>
