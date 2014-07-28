@@ -56,7 +56,7 @@
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     [self showMeetingLocation];
-    [self plotMeetupOnMap:self.meetupToPass];
+    [self plotMeetupOnMap:self.dataStore.userMeetup]; 
     
     
     
@@ -280,13 +280,7 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"createNewMeeting"]) {
-        
-        BBCreateMeetingNowViewController *nextVC = [[BBCreateMeetingNowViewController alloc]init];
-        
-        
-        nextVC.passedMeetup = self.meetupToPass;
-    }
+
 }
 
 

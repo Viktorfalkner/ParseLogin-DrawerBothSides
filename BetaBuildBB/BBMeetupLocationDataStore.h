@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BBMeetup.h"
 
 @interface BBMeetupLocationDataStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *meetUpsArray;
+@property (strong, nonatomic) BBMeetup *userMeetup;
+
 
 + (instancetype)sharedDataStore;
 
