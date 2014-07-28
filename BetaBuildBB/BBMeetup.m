@@ -63,7 +63,7 @@ return [self initWithUserID:@""
     meetupLocationToStore[@"userID"] = currentUser.objectId;
     meetupLocationToStore[@"meetingName"] = newMeetupLocation.meetingName;
     meetupLocationToStore[@"locationName"] = newMeetupLocation.locationName;
-    meetupLocationToStore[@"className"] = newMeetupLocation.className;
+    meetupLocationToStore[@"nameOfClass"] = newMeetupLocation.className;
     meetupLocationToStore[@"activityType"] = newMeetupLocation.activityType;
     meetupLocationToStore[@"startTime"] = newMeetupLocation.startTime;
     meetupLocationToStore[@"endTime"] = newMeetupLocation.endTime;
@@ -79,7 +79,7 @@ return [self initWithUserID:@""
     newMeetup.userID = objectFromParse[@"userID"];
     newMeetup.meetingName =  objectFromParse[@"meetingName"];
     newMeetup.locationName =  objectFromParse[@"locationName"];
-    newMeetup.className = objectFromParse[@"className"];
+    newMeetup.className = objectFromParse[@"nameOfClass"];
     newMeetup.activityType = objectFromParse[@"activityType"];
     newMeetup.startTime = objectFromParse[@"startTime"];
     newMeetup.endTime = objectFromParse[@"endTime"];

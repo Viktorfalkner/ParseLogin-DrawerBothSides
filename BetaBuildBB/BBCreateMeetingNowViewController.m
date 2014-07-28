@@ -63,13 +63,13 @@
 {
     BBMeetupLocationDataStore *store = [BBMeetupLocationDataStore sharedDataStore];
     
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    self.locationManager = [[CLLocationManager alloc] init];
     
     CGFloat latitudeFloat = self.locationManager.location.coordinate.latitude;
     CGFloat longitudeFloat = self.locationManager.location.coordinate.longitude;
     
-    NSNumber *latitudeNumber = [NSNumber numberWithFloat:locationManager.location.coordinate.latitude];
-    NSNumber *longitudeNumber = [NSNumber numberWithFloat:locationManager.location.coordinate.longitude];
+    NSNumber *latitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
+    NSNumber *longitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
     
     BBMeetup *newMeetup = [[BBMeetup alloc]
                            initWithUserID:[NSString stringWithFormat:@"%@",[PFUser currentUser]]
@@ -84,9 +84,9 @@
     
     [BBMeetup createMeetupInParse:newMeetup];
     [store.meetUpsArray addObject:newMeetup];
-
-    completionHandler(latitudeFloat,longitudeFloat);
-    self.locationOfNewMeeting = completionHandler
+//
+//    completionHandler(latitudeFloat,longitudeFloat);
+//    self.locationOfNewMeeting = completionHandler;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -105,6 +105,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _passedMeetup = [[BBMeetup alloc]init];
     // Do any additional setup after loading the view.
 }
 

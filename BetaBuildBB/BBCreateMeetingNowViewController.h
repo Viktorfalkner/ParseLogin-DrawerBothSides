@@ -13,8 +13,10 @@
 
 @interface BBCreateMeetingNowViewController : UIViewController <CLLocationManagerDelegate>
 
+@property (strong, nonatomic) BBMeetup *passedMeetup;
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) void (^locationOfNewMeeting)(CGFloat latitudeOfMeeting, CGFloat longitudeOfMeeting);
+@property (nonatomic, copy) void (^locationOfNewMeeting)(CGFloat latitudeOfMeeting, CGFloat longitudeOfMeeting);
 
 
 

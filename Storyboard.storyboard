@@ -35,7 +35,7 @@
                                 <items>
                                     <barButtonItem title="New Meeting now" style="plain" id="sAl-jO-5B5">
                                         <connections>
-                                            <segue destination="eD7-x7-VMA" kind="push" id="ScE-U6-EHD"/>
+                                            <segue destination="eD7-x7-VMA" kind="push" identifier="createNewMeetup" id="ScE-U6-EHD"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="New Meeting Later" id="efP-PZ-lp5">

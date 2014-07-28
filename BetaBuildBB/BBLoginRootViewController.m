@@ -28,13 +28,19 @@
     }
     return self;
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _meetupToPass = [[BBMeetup alloc]init];
+    }
+    return self;
+}
 
 #pragma mark - UIViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
     
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];
@@ -50,6 +56,7 @@
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     [self showMeetingLocation];
+    [self plotMeetupOnMap:self.meetupToPass];
     
     
     
@@ -271,6 +278,17 @@
         
     };
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"createNewMeeting"]) {
+        
+        BBCreateMeetingNowViewController *nextVC = [[BBCreateMeetingNowViewController alloc]init];
+        
+        
+        nextVC.passedMeetup = self.meetupToPass;
+    }
+}
+
 
 
 @end

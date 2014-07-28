@@ -27,9 +27,12 @@
 @property (strong, nonatomic) MMDrawerBarButtonItem *leftBarButtonItem;
 @property (strong, nonatomic) MMDrawerBarButtonItem *rightBarButtonItem;
 
+@property (strong, nonatomic) BBMeetup *meetupToPass;
+
 
 -(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups;
 
 -(void)plotMeetupOnMap:(BBMeetup *)meetUpToBePlotted;
+-(instancetype)init;
 
 @end
