@@ -56,7 +56,7 @@
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     [self showMeetingLocation];
-    [self plotMeetupOnMap:self.dataStore.userMeetup]; 
+    [self plotMeetupOnMap:self.dataStore.userMeetup];
     
     
     
@@ -191,21 +191,33 @@
 
 - (IBAction)refreshButton:(id)sender
 {
+    
+    [self.mapOutlet removeAnnotations:self.mapOutlet.annotations];
+    PFQuery *queryForALLLocations = [PFQuery queryWithClassName:@"BBMeetup"];
+    [queryForALLLocations findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSArray *queryResults = objects;
+        for (PFObject *pfobject in queryResults)
+        {
+            BBMeetup *meetingToPlot = [BBMeetup makePFObjectintoBBMeetup:pfobject];
+            [self plotMeetupOnMap:meetingToPlot];
+        }
 
-    CLLocation *locationToDisplay = [self.locationManager location];
-    
-    MKPointAnnotation *pointOnMap = [[MKPointAnnotation alloc]init];
-    
-    pointOnMap.coordinate = locationToDisplay.coordinate;
- 
-    
-//  pointOnMap.coordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
-    
-    NSLog(@"LAT :%f, LONG: %f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
-    
-    [self.mapOutlet addAnnotation:pointOnMap];
-    
-    [self.mapOutlet setCenterCoordinate:pointOnMap.coordinate animated:YES];
+        
+    }];
+//    CLLocation *locationToDisplay = [self.locationManager location];
+//    
+//    MKPointAnnotation *pointOnMap = [[MKPointAnnotation alloc]init];
+//    
+//    pointOnMap.coordinate = locationToDisplay.coordinate;
+// 
+//    
+////  pointOnMap.coordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
+//    
+//    NSLog(@"LAT :%f, LONG: %f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
+//    
+//    [self.mapOutlet addAnnotation:pointOnMap];
+//    
+//    [self.mapOutlet setCenterCoordinate:pointOnMap.coordinate animated:YES];
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
