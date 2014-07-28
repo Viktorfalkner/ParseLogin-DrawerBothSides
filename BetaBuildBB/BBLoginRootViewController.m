@@ -7,6 +7,7 @@
 //
 
 #import "BBLoginRootViewController.h"
+#import "BBCreateMeetingNowViewController.h"
 
 @interface BBLoginRootViewController ()
 - (IBAction)logout:(id)sender;
@@ -37,6 +38,7 @@
     
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];
+    
     self.mapOutlet.delegate = self;
     self.mapOutlet.showsUserLocation = YES;
     
@@ -47,9 +49,8 @@
     [super viewDidAppear:animated];
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+    [self showMeetingLocation];
     
-    
-
     
     
     if (![PFUser currentUser]) {
@@ -211,6 +212,8 @@
     
     [self.mapOutlet setRegion:region animated:YES];
 }
+
+
 -(void)plotMeetupOnMap:(BBMeetup *)meetUpToBePlotted
 {
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
@@ -223,6 +226,8 @@
     point.subtitle = meetUpToBePlotted.meetingName;
     [self.mapOutlet addAnnotation:point];
 }
+
+
 -(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups
 {
     if (self.dataStore.meetUpsArray == nil)
@@ -252,6 +257,19 @@
     {
         [self plotMeetupOnMap:meetup];
     }
+}
+-(void)showMeetingLocation
+{
+    BBCreateMeetingNowViewController *createNowVC = [[BBCreateMeetingNowViewController alloc]init];
+    
+    createNowVC.locationOfNewMeeting = ^void(CGFloat latitudeOfMeeting, CGFloat longitudeOfMeeting)
+    {
+        MKPointAnnotation *newMeetingPoint = [[MKPointAnnotation alloc]init];
+        newMeetingPoint.coordinate = CLLocationCoordinate2DMake(latitudeOfMeeting, longitudeOfMeeting);
+        [self.mapOutlet addAnnotation:newMeetingPoint];
+        [self.mapOutlet reloadInputViews];
+        
+    };
 }
 
 
