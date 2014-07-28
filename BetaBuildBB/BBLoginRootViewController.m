@@ -55,7 +55,7 @@
     [super viewDidAppear:animated];
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
-    [self showMeetingLocation];
+    
     [self plotMeetupOnMap:self.dataStore.userMeetup];
     
     
@@ -186,7 +186,7 @@
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     [self viewDidAppear:YES];
-
+    
 }
 
 - (IBAction)refreshButton:(id)sender
@@ -201,23 +201,9 @@
             BBMeetup *meetingToPlot = [BBMeetup makePFObjectintoBBMeetup:pfobject];
             [self plotMeetupOnMap:meetingToPlot];
         }
-
         
     }];
-//    CLLocation *locationToDisplay = [self.locationManager location];
-//    
-//    MKPointAnnotation *pointOnMap = [[MKPointAnnotation alloc]init];
-//    
-//    pointOnMap.coordinate = locationToDisplay.coordinate;
-// 
-//    
-////  pointOnMap.coordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
-//    
-//    NSLog(@"LAT :%f, LONG: %f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
-//    
-//    [self.mapOutlet addAnnotation:pointOnMap];
-//    
-//    [self.mapOutlet setCenterCoordinate:pointOnMap.coordinate animated:YES];
+    
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
@@ -231,7 +217,6 @@
     
     [self.mapOutlet setRegion:region animated:YES];
 }
-
 
 -(void)plotMeetupOnMap:(BBMeetup *)meetUpToBePlotted
 {
@@ -247,53 +232,14 @@
 }
 
 
--(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups
+-(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfBBMeetups
 {
-    if (self.dataStore.meetUpsArray == nil)
-    {
-        PFQuery *meetings = [PFQuery queryWithClassName:@"BBMeetup"];
-        
-        [meetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            NSArray *meetups = objects;
-            for (BBMeetup *meetup in meetups)
-            {
-                [self.dataStore.meetUpsArray addObject:meetups];
-    
-            }
-            [self plotAllMeetUpsOnMap:self.dataStore.meetUpsArray];
-            NSLog(@"%@",self.dataStore.meetUpsArray);
-        }];
-        [self.mapOutlet reloadInputViews];
-        
-    }
-//    PFQuery *query = [PFQuery queryWithClassName:@"BBMeetupLocation"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        _meetupsArray = objects;
-//        [self.tableView reloadData];
-//    }];
-
-    for (BBMeetup *meetup in arrayOfMeetups)
+    for (BBMeetup *meetup in arrayOfBBMeetups)
     {
         [self plotMeetupOnMap:meetup];
     }
 }
--(void)showMeetingLocation
-{
-    BBCreateMeetingNowViewController *createNowVC = [[BBCreateMeetingNowViewController alloc]init];
-    
-    createNowVC.locationOfNewMeeting = ^void(CGFloat latitudeOfMeeting, CGFloat longitudeOfMeeting)
-    {
-        MKPointAnnotation *newMeetingPoint = [[MKPointAnnotation alloc]init];
-        newMeetingPoint.coordinate = CLLocationCoordinate2DMake(latitudeOfMeeting, longitudeOfMeeting);
-        [self.mapOutlet addAnnotation:newMeetingPoint];
-        [self.mapOutlet reloadInputViews];
-        
-    };
-}
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
 
-}
 
 
 
