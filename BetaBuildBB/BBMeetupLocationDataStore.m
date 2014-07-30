@@ -43,7 +43,7 @@
                 BBMeetup *tempMeetUp = [BBMeetup makePFObjectintoBBMeetup:meetUpParseObject];
                            [self.allMeetingsArray addObject:tempMeetUp];
                 
-                if ([meetUpParseObject[@"userID"] isEqualToString:tempMeetUp.userID])
+                if ([[[PFUser currentUser] objectId] isEqualToString:tempMeetUp.userID])
                 {
                     [self.leftDrawerArray addObject:tempMeetUp];
                 }
