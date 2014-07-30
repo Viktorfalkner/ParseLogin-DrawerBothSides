@@ -34,6 +34,10 @@
 -(void)fetchAllMeetUpsFromParse
 {
     PFQuery *queryMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
+    self.allMeetingsArray = [NSMutableArray new];
+    self.leftDrawerArray = [NSMutableArray new];
+    self.rightDrawerArray = [NSMutableArray new];
+    
     [queryMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
         {
