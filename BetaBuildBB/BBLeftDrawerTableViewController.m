@@ -7,6 +7,7 @@
 //
 
 #import "BBLeftDrawerTableViewController.h"
+#import "BBMeetupLocationDataStore.h"
 #import "BBMeetup.h"
 
 @interface BBLeftDrawerTableViewController ()
@@ -31,7 +32,7 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     
-    self.leftDrawerOptions = [[NSMutableArray alloc]init];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,17 +43,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     
-    PFQuery *allMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
-    [allMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        for (PFObject *pfMeetup in objects)
-        {
-           BBMeetup *meetupToAdd = [BBMeetup makePFObjectintoBBMeetup:pfMeetup];
-            [self.leftDrawerOptions addObject:meetupToAdd];
-            
-        }
-        [self.tableView reloadData];
-    }];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.leftDrawerOptions count];
+    return [self.dataStore.leftDrawerArray count];
 }
 
 
@@ -79,7 +76,7 @@
     static NSString *CellIdentifier = @"LeftDrawerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    BBMeetup *meetupToDisplayInTableView = self.leftDrawerOptions[indexPath.row];
+    BBMeetup *meetupToDisplayInTableView = self.dataStore.allMeetingsArray[indexPath.row];
     
     
     cell.textLabel.text = meetupToDisplayInTableView.meetingName;

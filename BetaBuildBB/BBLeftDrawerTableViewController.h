@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BBMeetupLocationDataStore.h"
 
 @interface BBLeftDrawerTableViewController : UITableViewController
 
 @property (strong,nonatomic) NSMutableArray *leftDrawerOptions;
+
+@property (strong, nonatomic) BBMeetupLocationDataStore *dataStore;
 
 @end

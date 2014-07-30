@@ -42,8 +42,12 @@
 {
     [super viewDidLoad];
     
+    self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+
+    
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];
+    self.meetupArray = [NSMutableArray new];
     
     self.mapOutlet.delegate = self;
     self.mapOutlet.showsUserLocation = YES;
@@ -53,10 +57,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.dataStore fetchAllMeetUpsFromParse];
     
-    self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+
     
-    [self plotMeetupOnMap:self.dataStore.userMeetup];
+//   [self plotMeetupOnMap:self.dataStore.userMeetup];
     
     if (![PFUser currentUser]) {
         
@@ -107,6 +112,7 @@
         for (PFObject *pfobject in queryResults)
         {
             BBMeetup *meetingToPlot = [BBMeetup makePFObjectintoBBMeetup:pfobject];
+            [self.meetupArray addObject:meetingToPlot];
             [self plotMeetupOnMap:meetingToPlot];
         }
         
@@ -130,14 +136,14 @@
 {
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
     
-    double longitudeDouble = [meetUpToBePlotted.longitude doubleValue];
-    double latitudeDouble = [meetUpToBePlotted.latitude doubleValue];
+    CGFloat latitudeFloat = [meetUpToBePlotted.latitude floatValue];
+    CGFloat longitudeFloat = [meetUpToBePlotted.longitude floatValue];
     
-    point.coordinate = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble);
-    point.title = meetUpToBePlotted.userID;
-    point.subtitle = meetUpToBePlotted.meetingName;
+    point.coordinate = CLLocationCoordinate2DMake(latitudeFloat, longitudeFloat);
+    point.title = meetUpToBePlotted.meetingName;
     [self.mapOutlet addAnnotation:point];
 }
+
 
 
 -(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfBBMeetups

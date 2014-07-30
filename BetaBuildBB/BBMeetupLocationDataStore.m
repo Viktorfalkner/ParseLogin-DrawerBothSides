@@ -25,9 +25,55 @@
     self = [super init];
     if (self) {
         _meetUpsArray = [[NSMutableArray alloc]init];
+        _leftDrawerArray = [[NSMutableArray alloc]init];
+        _rightDrawerArray = [[NSMutableArray alloc]init];
+        _allMeetingsArray = [[NSMutableArray alloc]init];
     }
     return self;
 }
+-(void)fetchAllMeetUpsFromParse
+{
+    PFQuery *queryMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
+    [queryMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (PFObject *meetUpParseObject in objects)
+            {
+                //Add all meetups to fetched array
+                BBMeetup *tempMeetUp = [BBMeetup makePFObjectintoBBMeetup:meetUpParseObject];
+                           [self.allMeetingsArray addObject:tempMeetUp];
+                
+                if ([meetUpParseObject[@"userID"] isEqualToString:tempMeetUp.userID])
+                {
+                    [self.leftDrawerArray addObject:tempMeetUp];
+                }
+       
+            }
+            self.rightDrawerArray = self.allMeetingsArray;
+            
+        }
+        else
+        {
+            NSLog(@"Parse error in datastore: %@", error.localizedDescription);
+        }
+    }];
+}
+
+
+//-(void)fetchAllMeetingsFromParse:(void(^)())completionBlock {
+//    
+//    PFQuery *allMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
+//    [allMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        NSLog(@"%@", error.localizedDescription);
+//        for (PFObject *pfMeetup in objects)
+//        {
+//            BBMeetup *meetupToAdd = [BBMeetup makePFObjectintoBBMeetup:pfMeetup];
+//            [self.allMeetingsArray addObject:meetupToAdd];
+//        }
+//        completionBlock();
+//    }];
+//}
+
 
 
 @end

@@ -26,14 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView reloadData];
     
-    self.rightDrawerOptions = @[@"One", @"Two", @"Three", @"Four", @"Done"];
+    self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +57,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.rightDrawerOptions count];
+    
+    return [self.dataStore.rightDrawerArray count];
 }
 
 
@@ -61,8 +68,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    BBMeetup *meetupToDisplay = self.dataStore.rightDrawerArray[indexPath.row];
     
-    cell.textLabel.text = self.rightDrawerOptions[indexPath.row];
+    cell.textLabel.text = meetupToDisplay.meetingName;
+    
     return cell;
 }
 

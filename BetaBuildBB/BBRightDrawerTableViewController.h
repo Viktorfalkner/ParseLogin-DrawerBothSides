@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BBMeetupLocationDataStore.h"
 #import "UIViewController+MMDrawerController.h"
 
 @interface BBRightDrawerTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *rightDrawerOptions;
+@property (strong, nonatomic) BBMeetupLocationDataStore *dataStore;
 
 @end
