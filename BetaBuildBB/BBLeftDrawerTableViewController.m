@@ -44,6 +44,7 @@
 {
     [super viewWillAppear:animated];
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+    [self.tableView reloadData];
     
 }
 -(void)viewDidAppear:(BOOL)animated
