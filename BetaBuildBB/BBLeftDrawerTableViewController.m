@@ -77,7 +77,7 @@
     static NSString *CellIdentifier = @"LeftDrawerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    BBMeetup *meetupToDisplayInTableView = self.dataStore.allMeetingsArray[indexPath.row];
+    BBMeetup *meetupToDisplayInTableView = self.dataStore.leftDrawerArray[indexPath.row];
     
     
     cell.textLabel.text = meetupToDisplayInTableView.meetingName;

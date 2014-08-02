@@ -9,7 +9,7 @@
 #import "BBMeetupLocationDataStore.h"
 
 @implementation BBMeetupLocationDataStore
-
+@synthesize managedObjectContext = _managedObjectContext;
 
 + (instancetype)sharedDataStore {
     static BBMeetupLocationDataStore *_sharedDataStore = nil;
@@ -63,21 +63,56 @@
     }];
 }
 
+//Don't forget to synthesize managedObjectContext fam
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 
-//-(void)fetchAllMeetingsFromParse:(void(^)())completionBlock {
-//    
-//    PFQuery *allMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
-//    [allMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        NSLog(@"%@", error.localizedDescription);
-//        for (PFObject *pfMeetup in objects)
-//        {
-//            BBMeetup *meetupToAdd = [BBMeetup makePFObjectintoBBMeetup:pfMeetup];
-//            [self.allMeetingsArray addObject:meetupToAdd];
-//        }
-//        completionBlock();
-//    }];
-//}
+#pragma mark - Core Data stack
 
+// Returns the managed object context for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BetaBuildBB.sqlite"];
+    
+    NSError *error = nil;
+    
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"BetaBuildBB" withExtension:@"momd"];
+    NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+    
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _managedObjectContext;
+}
+
+
+#pragma mark - Application's Documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
 
 
 @end

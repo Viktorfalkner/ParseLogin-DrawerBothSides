@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSMutableArray *rightDrawerArray;
 @property (strong, nonatomic) NSMutableArray *allMeetingsArray;
 
+@property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 + (instancetype)sharedDataStore;
 -(instancetype)init;
