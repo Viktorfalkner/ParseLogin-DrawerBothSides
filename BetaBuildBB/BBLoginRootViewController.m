@@ -43,10 +43,11 @@
     [super viewDidLoad];
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
-
+    [self.mapOutlet showsUserLocation];
     
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];
+    
     self.meetupArray = [NSMutableArray new];
     
     self.mapOutlet.delegate = self;
@@ -57,11 +58,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.dataStore fetchAllMeetUpsFromParse];
+  
     
+    [self plotMeetupOnMap:self.dataStore.userMeetup];
 
-    
-//   [self plotMeetupOnMap:self.dataStore.userMeetup];
     
     if (![PFUser currentUser]) {
         
@@ -75,6 +75,8 @@
         
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+    
+    [self.dataStore fetchAllMeetUpsFromParse];
     
     //Left Drawer Button
     self.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
