@@ -7,8 +7,12 @@
 //
 
 #import "BBMeetupLocationDataStore.h"
+#import "User.h"
+#import "Course.h"
+#import "MeetUp.h"
 
 @implementation BBMeetupLocationDataStore
+//Synthesize managedObjectContext 
 @synthesize managedObjectContext = _managedObjectContext;
 
 + (instancetype)sharedDataStore {
@@ -31,37 +35,8 @@
     }
     return self;
 }
--(void)fetchAllMeetUpsFromParse
-{
-    PFQuery *queryMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
-    self.allMeetingsArray = [NSMutableArray new];
-    self.leftDrawerArray = [NSMutableArray new];
-    self.rightDrawerArray = [NSMutableArray new];
-    
-    [queryMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error)
-        {
-            for (PFObject *meetUpParseObject in objects)
-            {
-                //Add all meetups to fetched array
-                BBMeetup *tempMeetUp = [BBMeetup makePFObjectintoBBMeetup:meetUpParseObject];
-                           [self.allMeetingsArray addObject:tempMeetUp];
-                
-                if ([[[PFUser currentUser] objectId] isEqualToString:tempMeetUp.userID])
-                {
-                    [self.leftDrawerArray addObject:tempMeetUp];
-                }
-       
-            }
-            self.rightDrawerArray = self.allMeetingsArray;
-            
-        }
-        else
-        {
-            NSLog(@"Parse error in datastore: %@", error.localizedDescription);
-        }
-    }];
-}
+
+#pragma mark - Core Data stack
 
 //Don't forget to synthesize managedObjectContext fam
 - (void)saveContext
@@ -78,8 +53,6 @@
     }
 }
 
-#pragma mark - Core Data stack
-
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
@@ -93,7 +66,7 @@
     
     NSError *error = nil;
     
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"BetaBuildBB" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"userModel" withExtension:@"momd"];
     NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
     
@@ -114,5 +87,53 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+-(void)fetchAllMeetUpsFromParse
+{
+    PFQuery *queryMeetings = [PFQuery queryWithClassName:@"BBMeetup"];
+    self.allMeetingsArray = [NSMutableArray new];
+    self.leftDrawerArray = [NSMutableArray new];
+    self.rightDrawerArray = [NSMutableArray new];
+    
+    [queryMeetings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (PFObject *meetUpParseObject in objects)
+            {
+                //Add all meetups to fetched array
+                MeetUp *tempMeetUp = [MeetUp makePFObjectintoMeetup:meetUpParseObject withManagedObjectContext:self.managedObjectContext];
+                           [self.allMeetingsArray addObject:tempMeetUp];
+                
+                if ([[[PFUser currentUser] objectId] isEqualToString:tempMeetUp.userId])
+                {
+                    [self.leftDrawerArray addObject:tempMeetUp];
+                }
+       
+            }
+            self.rightDrawerArray = self.allMeetingsArray;
+            
+        }
+        else
+        {
+            NSLog(@"Parse error in datastore: %@", error.localizedDescription);
+        }
+    }];
+}
+
+#pragma mark - Make managed objects
+
+-(User *)makeUserObject
+{
+    return [User userWithContext:self.managedObjectContext];
+}
+
+-(Course *)makeCourseObject
+{
+    return [Course courseWithContext:self.managedObjectContext];
+}
+
+-(MeetUp *)makeMeetUpObject
+{
+    return [MeetUp meetUpWithContext:self.managedObjectContext]; 
+}
 
 @end

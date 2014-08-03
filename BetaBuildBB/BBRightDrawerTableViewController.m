@@ -7,6 +7,7 @@
 //
 
 #import "BBRightDrawerTableViewController.h"
+#import "MeetUp.h"
 
 @interface BBRightDrawerTableViewController ()
 
@@ -68,7 +69,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    BBMeetup *meetupToDisplay = self.dataStore.rightDrawerArray[indexPath.row];
+    MeetUp *meetupToDisplay = self.dataStore.rightDrawerArray[indexPath.row];
     
     cell.textLabel.text = meetupToDisplay.meetingName;
     

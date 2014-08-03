@@ -33,4 +33,7 @@
 - (void)addMeetingsForCourse:(NSSet *)values;
 - (void)removeMeetingsForCourse:(NSSet *)values;
 
+//Copy and paste these methods if you overwrite MO's
++(instancetype)courseWithContext:(NSManagedObjectContext *)context; 
+
 @end

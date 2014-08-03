@@ -7,20 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BBMeetup.h"
+#import "MeetUp.h"
 #import <CoreLocation/CoreLocation.h>
 #import "BBMeetupLocationDataStore.h"
 
 @interface BBCreateMeetingNowViewController : UIViewController <CLLocationManagerDelegate>
 
-@property (strong, nonatomic) BBMeetup *passedMeetup;
+@property (strong, nonatomic) MeetUp *passedMeetup;
 @property (strong, nonatomic) BBMeetupLocationDataStore *dataStore;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, copy) void (^locationOfNewMeeting)(CGFloat latitudeOfMeeting, CGFloat longitudeOfMeeting);
-
-
-
-
 
 @end

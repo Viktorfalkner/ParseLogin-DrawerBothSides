@@ -40,4 +40,7 @@
 - (void)addFriends:(NSSet *)values;
 - (void)removeFriends:(NSSet *)values;
 
+//Copy and paste these methods if you overwrite MO's
++(instancetype)userWithContext:(NSManagedObjectContext *)context; 
+
 @end

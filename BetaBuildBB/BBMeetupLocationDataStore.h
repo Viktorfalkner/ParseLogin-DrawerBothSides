@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BBMeetup.h"
+
+@class User;
+@class Course;
+@class MeetUp;
 
 @interface BBMeetupLocationDataStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *meetUpsArray;
-@property (strong, nonatomic) BBMeetup *userMeetup;
+@property (strong, nonatomic) MeetUp *userMeetup;
 
 @property (strong, nonatomic) NSMutableArray *leftDrawerArray;
 @property (strong, nonatomic) NSMutableArray *rightDrawerArray;
@@ -22,8 +25,11 @@
 
 + (instancetype)sharedDataStore;
 -(instancetype)init;
-//-(void)fetchAllMeetingsFromParse:(void(^)())completionBlock;
-
 -(void)fetchAllMeetUpsFromParse;
+
+//Making managed objects
+-(User *)makeUserObject;
+-(Course *)makeCourseObject;
+-(MeetUp *)makeMeetUpObject;
 
 @end

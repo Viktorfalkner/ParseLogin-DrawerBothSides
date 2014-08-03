@@ -14,9 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *meetupActivity;
 @property (weak, nonatomic) IBOutlet UITextField *meetupLocation;
 
-
-
-
 @end
 
 @implementation BBCreateMeetingNowViewController
@@ -28,18 +25,19 @@
     NSNumber *latitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
     NSNumber *longitudeNumber = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
     
-    self.dataStore.userMeetup = [[BBMeetup alloc]
-                           initWithUserID:[NSString stringWithFormat:@"%@",[PFUser currentUser]]
-                           MeetingName:self.meetupName.text
-                           withLocationName:self.meetupLocation.text
-                           withClassName:self.meetupClass.text
-                           withActivityType:self.meetupActivity.text
-                           withStartTime:[NSDate date]
-                           withEndTime:[[NSDate date] dateByAddingTimeInterval:60*60]
-                           withLatidue:latitudeNumber
-                           withLongitude:longitudeNumber];
+    MeetUp *newMeetUp = [self.dataStore makeMeetUpObject];
+    newMeetUp.userId = [NSString stringWithFormat:@"%@", [PFUser currentUser]];
+    newMeetUp.meetingName = self.meetupName.text;
+    newMeetUp.locationName = self.meetupLocation.text;
+    newMeetUp.activityType = self.meetupActivity.text;
+    newMeetUp.startTime = [NSDate date];
+    newMeetUp.endTime = [[NSDate date] dateByAddingTimeInterval:60*60];
+    newMeetUp.latitude = latitudeNumber;
+    newMeetUp.longitude = longitudeNumber;
     
-    [BBMeetup createMeetupInParse:self.dataStore.userMeetup];
+    self.dataStore.userMeetup = newMeetUp;
+
+    [MeetUp createMeetupInParse:self.dataStore.userMeetup];
     [self.dataStore.meetUpsArray addObject:self.dataStore.userMeetup];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -65,8 +63,7 @@
 
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
     
-    _passedMeetup = [[BBMeetup alloc]init];
-    // Do any additional setup after loading the view.
+    _passedMeetup = [MeetUp meetUpWithContext:self.dataStore.managedObjectContext]; 
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,6 +71,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 //-(void)getCurrentLocation
 //{
 //    CLLocationManager *manager = [[CLLocationManager alloc]init];

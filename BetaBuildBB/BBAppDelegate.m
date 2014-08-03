@@ -8,6 +8,7 @@
 
 #import "BBAppDelegate.h"
 #import "MMDrawerVisualState.h"
+#import "BBMeetupLocationDataStore.h"
 
 @implementation BBAppDelegate
 
@@ -32,6 +33,9 @@
     
     [self.centerDrawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideAndScaleVisualStateBlock]];
     [self.centerDrawerController setShowsShadow:YES];
+    
+    BBMeetupLocationDataStore *tempStore = [BBMeetupLocationDataStore sharedDataStore];
+    NSLog(@"%@", tempStore.managedObjectContext); 
     
     return YES;
 }

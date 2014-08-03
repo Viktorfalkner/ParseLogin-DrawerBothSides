@@ -10,8 +10,8 @@
 #import "BBCreateMeetingNowViewController.h"
 
 @interface BBLoginRootViewController ()
-- (IBAction)logout:(id)sender;
 
+- (IBAction)logout:(id)sender;
 - (IBAction)refreshButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapOutlet;
@@ -32,7 +32,7 @@
 {
     self = [super init];
     if (self) {
-        _meetupToPass = [[BBMeetup alloc]init];
+        _meetupToPass = [MeetUp meetUpWithContext:self.dataStore.managedObjectContext];
     }
     return self;
 }
@@ -113,7 +113,7 @@
         NSArray *queryResults = objects;
         for (PFObject *pfobject in queryResults)
         {
-            BBMeetup *meetingToPlot = [BBMeetup makePFObjectintoBBMeetup:pfobject];
+            MeetUp *meetingToPlot = [MeetUp makePFObjectintoMeetup:pfobject withManagedObjectContext:self.dataStore.managedObjectContext];
             [self.meetupArray addObject:meetingToPlot];
             [self plotMeetupOnMap:meetingToPlot];
         }
@@ -134,7 +134,7 @@
     [self.mapOutlet setRegion:region animated:YES];
 }
 
--(void)plotMeetupOnMap:(BBMeetup *)meetUpToBePlotted
+-(void)plotMeetupOnMap:(MeetUp *)meetUpToBePlotted
 {
     MKPointAnnotation *point = [[MKPointAnnotation alloc]init];
     
@@ -148,15 +148,12 @@
 
 
 
--(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfBBMeetups
+-(void)plotAllMeetUpsOnMap:(NSArray *)arrayOfMeetups
 {
-    for (BBMeetup *meetup in arrayOfBBMeetups)
+    for (MeetUp *meetup in arrayOfMeetups)
     {
         [self plotMeetupOnMap:meetup];
     }
 }
-
-
-
 
 @end

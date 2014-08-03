@@ -32,4 +32,10 @@
 - (void)addClassmates:(NSSet *)values;
 - (void)removeClassmates:(NSSet *)values;
 
+//Copy and paste these methods if you overwrite MO's
++(instancetype)meetUpWithContext:(NSManagedObjectContext *)context;
++(void)createMeetupInParse:(MeetUp *)newMeetupLocation;
++(MeetUp *)makePFObjectintoMeetup:(PFObject *)objectFromParse withManagedObjectContext:(NSManagedObjectContext *)context;
+
+
 @end

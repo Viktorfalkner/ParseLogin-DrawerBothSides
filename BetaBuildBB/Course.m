@@ -20,4 +20,9 @@
 @dynamic students;
 @dynamic meetingsForCourse;
 
++(instancetype)courseWithContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:context]; 
+}
+
 @end

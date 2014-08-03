@@ -8,7 +8,7 @@
 
 #import "BBLeftDrawerTableViewController.h"
 #import "BBMeetupLocationDataStore.h"
-#import "BBMeetup.h"
+#import "MeetUp.h"
 
 @interface BBLeftDrawerTableViewController ()
 
@@ -77,7 +77,7 @@
     static NSString *CellIdentifier = @"LeftDrawerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    BBMeetup *meetupToDisplayInTableView = self.dataStore.leftDrawerArray[indexPath.row];
+    MeetUp *meetupToDisplayInTableView = self.dataStore.leftDrawerArray[indexPath.row];
     
     
     cell.textLabel.text = meetupToDisplayInTableView.meetingName;

@@ -30,14 +30,13 @@
 		774C2AF5197C92B2006DCC87 /* BBCreateMeetingNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C2AF4197C92B2006DCC87 /* BBCreateMeetingNowViewController.m */; };
 		774C2AF8197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */; };
 		7771A3CD1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7771A3CC1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.m */; };
-		77FB73611984554E00104E58 /* BBMeetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB73601984554E00104E58 /* BBMeetup.m */; };
 		91E72CDBE84E42BDAC6F181B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E94057B3393E422194634168 /* libPods.a */; };
 		F870DB75197C762500E1A779 /* BBRightDrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F870DB74197C762500E1A779 /* BBRightDrawerTableViewController.m */; };
-		F89B73CD198DA33F00F174AE /* userModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F89B73CB198DA33F00F174AE /* userModel.xcdatamodeld */; };
 		F89B73CF198DA4F200F174AE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89B73CE198DA4F200F174AE /* CoreData.framework */; };
 		F89B73DB198DB11F00F174AE /* MeetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F89B73DA198DB11F00F174AE /* MeetUp.m */; };
 		F89B73DE198DB11F00F174AE /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = F89B73DD198DB11F00F174AE /* Course.m */; };
 		F89B73E1198DB11F00F174AE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F89B73E0198DB11F00F174AE /* User.m */; };
+		F89B73E3198DC5ED00F174AE /* userModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F89B73CB198DA33F00F174AE /* userModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +83,6 @@
 		774C2AF7197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCreateMeetingLaterViewController.m; sourceTree = "<group>"; };
 		7771A3CB1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBLoginRootViewController+BBDrawerControllers.h"; sourceTree = "<group>"; };
 		7771A3CC1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBLoginRootViewController+BBDrawerControllers.m"; sourceTree = "<group>"; };
-		77FB735F1984554E00104E58 /* BBMeetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMeetup.h; sourceTree = "<group>"; };
-		77FB73601984554E00104E58 /* BBMeetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMeetup.m; sourceTree = "<group>"; };
 		B2FBE3E1967446B38889EE65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E94057B3393E422194634168 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F870DB73197C762500E1A779 /* BBRightDrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRightDrawerTableViewController.h; sourceTree = "<group>"; };
@@ -98,6 +95,7 @@
 		F89B73DD198DB11F00F174AE /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		F89B73DF198DB11F00F174AE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F89B73E0198DB11F00F174AE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F89B73E2198DC09200F174AE /* userModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "userModel 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,8 +262,6 @@
 		77FB73621984555200104E58 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				77FB735F1984554E00104E58 /* BBMeetup.h */,
-				77FB73601984554E00104E58 /* BBMeetup.m */,
 				F89B73CB198DA33F00F174AE /* userModel.xcdatamodeld */,
 				F89B73DF198DB11F00F174AE /* User.h */,
 				F89B73E0198DB11F00F174AE /* User.m */,
@@ -410,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89B73E3198DC5ED00F174AE /* userModel.xcdatamodeld in Sources */,
 				F89B73DE198DB11F00F174AE /* Course.m in Sources */,
 				F870DB75197C762500E1A779 /* BBRightDrawerTableViewController.m in Sources */,
 				3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */,
@@ -421,8 +418,6 @@
 				F89B73E1198DB11F00F174AE /* User.m in Sources */,
 				774C2AF8197C92F1006DCC87 /* BBCreateMeetingLaterViewController.m in Sources */,
 				77401B7A198482CD000F34EA /* BBMeetupLocationDataStore.m in Sources */,
-				77FB73611984554E00104E58 /* BBMeetup.m in Sources */,
-				F89B73CD198DA33F00F174AE /* userModel.xcdatamodeld in Sources */,
 				7771A3CD1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +634,7 @@
 		F89B73CB198DA33F00F174AE /* userModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F89B73E2198DC09200F174AE /* userModel 2.xcdatamodel */,
 				F89B73CC198DA33F00F174AE /* userModel.xcdatamodel */,
 			);
 			currentVersion = F89B73CC198DA33F00F174AE /* userModel.xcdatamodel */;

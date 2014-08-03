@@ -23,4 +23,9 @@
 @dynamic meetings;
 @dynamic friends;
 
++(instancetype)userWithContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context]; 
+}
+
 @end
