@@ -43,6 +43,12 @@
     [self.tableView reloadData];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.dataStore fetchAllMeetUpsFromParse];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
