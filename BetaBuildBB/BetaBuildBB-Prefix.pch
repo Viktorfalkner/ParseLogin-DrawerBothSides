@@ -16,4 +16,5 @@
     #import <Parse/Parse.h>
     #import <MMDrawerController/MMDrawerController.h>
     #import <CoreData/CoreData.h>
+    #import <EventKitUI/EventKitUI.h>
 #endif

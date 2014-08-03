@@ -100,5 +100,12 @@
     
 }
 
+#pragma mark - EKEventEditViewController Methods
+
+- (IBAction)newMeetingLaterButton:(id)sender
+{
+    
+}
+
 
 @end

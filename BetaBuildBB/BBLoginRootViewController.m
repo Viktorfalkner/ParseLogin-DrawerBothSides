@@ -14,6 +14,9 @@
 - (IBAction)logout:(id)sender;
 - (IBAction)refreshButton:(id)sender;
 
+//Located in category
+- (IBAction)newMeetingLaterButton:(id)sender;
+
 @property (weak, nonatomic) IBOutlet MKMapView *mapOutlet;
 
 @end
@@ -121,6 +124,7 @@
     }];
     
 }
+
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.location = locations.lastObject;
