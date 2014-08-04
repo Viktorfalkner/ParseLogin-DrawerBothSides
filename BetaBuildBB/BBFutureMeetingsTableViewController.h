@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) BBMeetupLocationDataStore *store;
+
+//This property not being used, here for convenience 
 @property (strong, nonatomic) EKEvent *futureMeetup;
 
 //EKEventStore instance associated with
@@ -25,6 +27,6 @@
 // Array of all user's events
 @property (strong, nonatomic) NSMutableArray *eventsList;
 
--(void)makeEventIntoMeetUpObject; 
+-(void)makeEventIntoMeetUpObject:(EKEvent *)eventToBeMadeIntoMeetUpToParseObject;
 
 @end

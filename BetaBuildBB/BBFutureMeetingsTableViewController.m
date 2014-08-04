@@ -130,6 +130,7 @@
      {
          if (granted)
          {
+//             self.futureMeetup = [EKEvent eventWithEventStore:self.eventStore]; 
              //No need to make weak self, not GCD (I think)
              // Run on main queue
              [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -178,21 +179,21 @@
 
 #pragma mark - EventIntoMeetUpToParse
 
--(void)makeEventIntoMeetUpObject
+-(void)makeEventIntoMeetUpObject:(EKEvent *)eventToBeMadeIntoMeetUpToParseObject
 {
-    id null = [NSNull null];
+//    id null = [NSNull null];
     MeetUp *meetUpToBeMadeIntoParseObject = [self.store makeMeetUpObject];
     meetUpToBeMadeIntoParseObject.userId = [PFUser currentUser].objectId;
-    meetUpToBeMadeIntoParseObject.meetingName = self.futureMeetup.title;
-    meetUpToBeMadeIntoParseObject.locationName = self.futureMeetup.location;
-    meetUpToBeMadeIntoParseObject.startTime = self.futureMeetup.startDate;
-    meetUpToBeMadeIntoParseObject.endTime = self.futureMeetup.endDate;
+    meetUpToBeMadeIntoParseObject.meetingName = eventToBeMadeIntoMeetUpToParseObject.title;
+    meetUpToBeMadeIntoParseObject.locationName = eventToBeMadeIntoMeetUpToParseObject.location;
+    meetUpToBeMadeIntoParseObject.startTime = eventToBeMadeIntoMeetUpToParseObject.startDate;
+    meetUpToBeMadeIntoParseObject.endTime = eventToBeMadeIntoMeetUpToParseObject.endDate;
     //Values to be implemented later (Change lat and long to user set value)
     meetUpToBeMadeIntoParseObject.latitude = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
     meetUpToBeMadeIntoParseObject.longitude = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
-    meetUpToBeMadeIntoParseObject.activityType = @"";
-    meetUpToBeMadeIntoParseObject.courseToStudy = [self.store makeCourseObject];
-    meetUpToBeMadeIntoParseObject.classmates = [NSSet new];
+    meetUpToBeMadeIntoParseObject.activityType = @"New activity";
+//    meetUpToBeMadeIntoParseObject.courseToStudy = [self.store makeCourseObject];
+//    meetUpToBeMadeIntoParseObject.classmates = [NSSet new];
     
     [MeetUp createMeetupInParse:meetUpToBeMadeIntoParseObject]; 
 }
@@ -208,7 +209,7 @@
         if (action != EKEventEditViewActionCanceled) {
             //Refetch and update tableview on mainqueue
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self makeEventIntoMeetUpObject];
+                [self makeEventIntoMeetUpObject:controller.event];
                 [self fetchEvents];
                 [self.tableView reloadData];
             }];

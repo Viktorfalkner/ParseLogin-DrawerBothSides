@@ -48,8 +48,8 @@
     meetupLocationToStore[@"endTime"] = newMeetupLocation.endTime;
     meetupLocationToStore[@"longitudeValue"] = newMeetupLocation.longitude;
     meetupLocationToStore[@"latitudeValue"] = newMeetupLocation.latitude;
-    meetupLocationToStore[@"course"] =  newMeetupLocation.courseToStudy;
-    meetupLocationToStore[@"classmates"] = newMeetupLocation.classmates;
+//    meetupLocationToStore[@"course"] =  newMeetupLocation.courseToStudy;
+//    meetupLocationToStore[@"classmates"] = newMeetupLocation.classmates;
     
     //Saving in Parse not CD
     [meetupLocationToStore saveInBackground];
