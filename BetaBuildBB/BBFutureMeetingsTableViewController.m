@@ -51,6 +51,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self checkEventStoreAccessForCalendar];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -61,12 +67,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.eventsList count];
 }
 
 - (IBAction)createNewMeeting:(id)sender
@@ -79,16 +85,19 @@
 }
 
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellEventName = @"eventDetail";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellEventName forIndexPath:indexPath];
     
     // Configure the cell...
     
+    EKEvent *futureEvent = self.eventsList[indexPath.row];
+    cell.textLabel.text = futureEvent.title;
     return cell;
 }
-*/
+
 
 
 // Check the authorization status of our application for Calendar
@@ -127,7 +136,7 @@
      {
          if (granted)
          {
-//             BBFutureMeetingsTableViewController * __weak weakSelf = self;
+             //No need to make weak self, not GCD (I think)
              // Run on main queue
              [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                  [self accessGrantedForCalendar];
@@ -176,8 +185,33 @@
 -(void)eventEditViewController:(EKEventEditViewController *)controller
          didCompleteWithAction:(EKEventEditViewAction)action
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//  Dismiss the view controller
+    [self dismissViewControllerAnimated:YES completion:^{
+        //If the user clicks done
+        if (action != EKEventEditViewActionCanceled) {
+            //Refetch and update tableview on mainqueue
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self fetchEvents];
+                [self.tableView reloadData];
+            }];
+        }
+    }];
 }
+
+// Set the calendar edited by EKEventEditViewController to our chosen calendar - the default calendar.
+- (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller
+{
+	return self.userCalendar;
+}
+
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+}
+ 
 
 /*
 // Override to support conditional editing of the table view.
@@ -217,14 +251,4 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 @end
