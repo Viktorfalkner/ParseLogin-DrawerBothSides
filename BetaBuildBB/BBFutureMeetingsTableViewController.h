@@ -25,4 +25,6 @@
 // Array of all user's events
 @property (strong, nonatomic) NSMutableArray *eventsList;
 
+-(void)makeEventIntoMeetUpObject; 
+
 @end

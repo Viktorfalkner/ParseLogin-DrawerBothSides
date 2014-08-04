@@ -9,6 +9,7 @@
 #import "BBFutureMeetingsTableViewController.h"
 #import "BBMeetupLocationDataStore.h"
 #import "BBEventDetailViewController.h"
+#import "MeetUp.h"
 
 @interface BBFutureMeetingsTableViewController ()
 
@@ -27,6 +28,8 @@
     }
     return self;
 }
+
+#pragma mark - Life cycle methods
 
 - (void)viewDidLoad
 {
@@ -64,7 +67,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view data source/delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -76,17 +79,6 @@
     return [self.eventsList count];
 }
 
-- (IBAction)createNewMeeting:(id)sender
-{
-    EKEventEditViewController *editEventController = [[EKEventEditViewController alloc] init];
-    editEventController.eventStore = self.eventStore;
-    editEventController.editViewDelegate = self;
-    
-    [self presentViewController:editEventController animated:YES completion:nil];
-}
-
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellEventName = @"eventDetail";
@@ -96,10 +88,11 @@
     
     EKEvent *futureEvent = self.eventsList[indexPath.row];
     cell.textLabel.text = futureEvent.title;
+    cell.detailTextLabel.text = futureEvent.location; 
     return cell;
 }
 
-
+#pragma mark - Calendar authorization
 
 // Check the authorization status of our application for Calendar
 -(void)checkEventStoreAccessForCalendar
@@ -183,6 +176,29 @@
 	return events;
 }
 
+#pragma mark - EventIntoMeetUpToParse
+
+-(void)makeEventIntoMeetUpObject
+{
+    id null = [NSNull null];
+    MeetUp *meetUpToBeMadeIntoParseObject = [self.store makeMeetUpObject];
+    meetUpToBeMadeIntoParseObject.userId = [PFUser currentUser].objectId;
+    meetUpToBeMadeIntoParseObject.meetingName = self.futureMeetup.title;
+    meetUpToBeMadeIntoParseObject.locationName = self.futureMeetup.location;
+    meetUpToBeMadeIntoParseObject.startTime = self.futureMeetup.startDate;
+    meetUpToBeMadeIntoParseObject.endTime = self.futureMeetup.endDate;
+    //Values to be implemented later (Change lat and long to user set value)
+    meetUpToBeMadeIntoParseObject.latitude = [NSNumber numberWithFloat:self.locationManager.location.coordinate.latitude];
+    meetUpToBeMadeIntoParseObject.longitude = [NSNumber numberWithFloat:self.locationManager.location.coordinate.longitude];
+    meetUpToBeMadeIntoParseObject.activityType = @"";
+    meetUpToBeMadeIntoParseObject.courseToStudy = [self.store makeCourseObject];
+    meetUpToBeMadeIntoParseObject.classmates = [NSSet new];
+    
+    [MeetUp createMeetupInParse:meetUpToBeMadeIntoParseObject]; 
+}
+
+#pragma mark - Dismiss EventEditVC
+
 -(void)eventEditViewController:(EKEventEditViewController *)controller
          didCompleteWithAction:(EKEventEditViewAction)action
 {
@@ -192,6 +208,7 @@
         if (action != EKEventEditViewActionCanceled) {
             //Refetch and update tableview on mainqueue
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self makeEventIntoMeetUpObject];
                 [self fetchEvents];
                 [self.tableView reloadData];
             }];
@@ -218,7 +235,17 @@
     
     receivingEventVC.eventToDetail = eventToBePassed; 
 }
- 
+
+#pragma mark - CreateMeetingButton
+
+- (IBAction)createNewMeeting:(id)sender
+{
+    EKEventEditViewController *editEventController = [[EKEventEditViewController alloc] init];
+    editEventController.eventStore = self.eventStore;
+    editEventController.editViewDelegate = self;
+    
+    [self presentViewController:editEventController animated:YES completion:nil];
+}
 
 /*
 // Override to support conditional editing of the table view.

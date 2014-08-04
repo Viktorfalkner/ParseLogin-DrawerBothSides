@@ -31,6 +31,7 @@
 
 +(void)createMeetupInParse:(MeetUp *)newMeetupLocation
 {
+    //Don't forget to set relationships for Meetups (course and classmates)
     PFObject *meetupLocationToStore = [PFObject objectWithClassName:@"BBMeetup"];
     CLLocationManager *manager = [[CLLocationManager alloc]init];
     
@@ -47,6 +48,8 @@
     meetupLocationToStore[@"endTime"] = newMeetupLocation.endTime;
     meetupLocationToStore[@"longitudeValue"] = newMeetupLocation.longitude;
     meetupLocationToStore[@"latitudeValue"] = newMeetupLocation.latitude;
+    meetupLocationToStore[@"course"] =  newMeetupLocation.courseToStudy;
+    meetupLocationToStore[@"classmates"] = newMeetupLocation.classmates;
     
     //Saving in Parse not CD
     [meetupLocationToStore saveInBackground];
