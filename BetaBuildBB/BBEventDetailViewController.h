@@ -12,4 +12,6 @@
 
 @interface BBEventDetailViewController : UIViewController
 
+@property (strong, nonatomic) EKEvent *eventToDetail;
+
 @end

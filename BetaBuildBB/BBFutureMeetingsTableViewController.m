@@ -8,6 +8,7 @@
 
 #import "BBFutureMeetingsTableViewController.h"
 #import "BBMeetupLocationDataStore.h"
+#import "BBEventDetailViewController.h"
 
 @interface BBFutureMeetingsTableViewController ()
 
@@ -209,7 +210,13 @@
  // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    BBEventDetailViewController *receivingEventVC = segue.destinationViewController;
+    
+    NSIndexPath *eachEventIndex = [self.tableView indexPathForSelectedRow];
+    
+    EKEvent *eventToBePassed = self.eventsList[eachEventIndex.row];
+    
+    receivingEventVC.eventToDetail = eventToBePassed; 
 }
  
 

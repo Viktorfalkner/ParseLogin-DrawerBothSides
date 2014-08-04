@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="890" y="355"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Detail View Controller-->
         <scene sceneID="DW4-cg-Y3x">
             <objects>
-                <viewController id="zim-zz-1mV" sceneMemberID="viewController">
+                <viewController id="zim-zz-1mV" customClass="BBEventDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mrr-5k-pzB"/>
                         <viewControllerLayoutGuide type="bottom" id="2CV-sU-Qg0"/>
