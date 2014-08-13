@@ -46,10 +46,11 @@
     [super viewDidLoad];
     
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
-    [self.mapOutlet showsUserLocation];
+
     
     self.locationManager = [[CLLocationManager alloc]init];
     [self.locationManager startUpdatingLocation];
+    [self.mapOutlet showsUserLocation];
     
     self.meetupArray = [NSMutableArray new];
     
