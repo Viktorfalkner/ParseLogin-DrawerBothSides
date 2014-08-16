@@ -67,6 +67,7 @@
     
     NSString *classToDisplay = [NSString stringWithFormat:@"%@ %@", self.chosenClass.title, self.chosenUniversity.name];
     self.meetupClass.text = classToDisplay;
+    self.meetupActivity.text = self.chosenActivity;
     
     _passedMeetup = [MeetUp meetUpWithContext:self.dataStore.managedObjectContext]; 
 }

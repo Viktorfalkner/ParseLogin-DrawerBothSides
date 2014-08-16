@@ -1,23 +1,23 @@
 //
-//  BBPickClassViewController.m
+//  BBMeetupReasonViewController.m
 //  BetaBuildBB
 //
 //  Created by Troy Barrett on 8/16/14.
 //
 //
 
-#import "BBPickClassViewController.h"
-#import "BBMeetupLocationDataStore.h"
 #import "BBMeetupReasonViewController.h"
-#import "BBClass.h"
+#import "BBCreateMeetingNowViewController.h"
 
-@interface BBPickClassViewController ()
+@interface BBMeetupReasonViewController ()
 
-@property (strong, nonatomic) IBOutlet UIPickerView *classPicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *meetupPicker;
+
+@property (strong, nonatomic) NSArray *meetupReasons;
 
 @end
 
-@implementation BBPickClassViewController
+@implementation BBMeetupReasonViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,12 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.classPicker.dataSource = self;
-    self.classPicker.delegate = self;
-    self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
-    [self.dataStore fetchClassesForUniversity:self.chosenUniversity FromParse:^{
-        [self.classPicker reloadAllComponents];
-    }];
+    self.meetupReasons = @[@"Homework", @"Mid-Term", @"Final", @"Review"];
+    self.meetupPicker.dataSource = self;
+    self.meetupPicker.delegate = self;
+
     // Do any additional setup after loading the view.
 }
 
@@ -58,16 +56,14 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [self.dataStore.selectedUniversityClasses count];
+    return [self.meetupReasons count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    BBClass *class = self.dataStore.selectedUniversityClasses[row];
-    self.chosenClass = self.dataStore.selectedUniversityClasses[row];
-    return class.title;
+    return self.meetupReasons[row];
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -75,9 +71,8 @@ numberOfRowsInComponent:(NSInteger)component
     if (!retval) {
         retval= [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
     }
-    BBClass *class = self.dataStore.selectedUniversityClasses[row];
-    retval.text = class.title;
-    self.chosenClass = self.dataStore.selectedUniversityClasses[row];
+    retval.text = self.meetupReasons[row];
+    self.chosenActivity = self.meetupReasons[row];
     retval.adjustsFontSizeToFitWidth = YES;
     return retval;
 }
@@ -87,7 +82,7 @@ numberOfRowsInComponent:(NSInteger)component
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component
 {
-        self.chosenClass = self.dataStore.selectedUniversityClasses[row];
+    self.chosenActivity = self.meetupReasons[row];
 }
 
 
@@ -96,10 +91,11 @@ numberOfRowsInComponent:(NSInteger)component
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    BBMeetupReasonViewController *nextVC = segue.destinationViewController;
-    if ([segue.identifier isEqualToString:@"classSelected"]) {
+    BBCreateMeetingNowViewController *nextVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"activitySelected"]) {
         nextVC.chosenUniversity = self.chosenUniversity;
         nextVC.chosenClass = self.chosenClass;
+        nextVC.chosenActivity = self.chosenActivity;
     }
 }
 

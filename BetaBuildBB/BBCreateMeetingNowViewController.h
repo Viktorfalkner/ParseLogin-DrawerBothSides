@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) BBUniversity *chosenUniversity;
 @property (strong, nonatomic) BBClass *chosenClass;
+@property (strong, nonatomic) NSString *chosenActivity;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, copy) void (^locationOfNewMeeting)(CGFloat latitudeOfMeeting, CGFloat longitudeOfMeeting);
