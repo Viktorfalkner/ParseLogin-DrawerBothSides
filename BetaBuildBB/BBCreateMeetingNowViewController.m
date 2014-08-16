@@ -7,6 +7,8 @@
 //
 
 #import "BBCreateMeetingNowViewController.h"
+#import "BBUniversity.h"
+#import "BBClass.h"
 
 @interface BBCreateMeetingNowViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *meetupName;
@@ -41,7 +43,7 @@
     [self.dataStore.meetUpsArray addObject:self.dataStore.userMeetup];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 
@@ -62,6 +64,10 @@
     [super viewDidLoad];
 
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+    
+    NSString *classToDisplay = [NSString stringWithFormat:@"%@ %@", self.chosenClass.title, self.chosenUniversity.name];
+    self.meetupClass.text = classToDisplay;
+    self.meetupActivity.text = self.chosenActivity;
     
     _passedMeetup = [MeetUp meetUpWithContext:self.dataStore.managedObjectContext]; 
 }

@@ -4,12 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MMDrawerController+Storyboard.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MMDrawerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B1A6005D9624639AF20F672</key>
+		<key>25B6F5C23AAB49BDA106585F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1378324F1D94FAA8CC01013</key>
+		<key>3971125E17184EA4A08F0570</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF2B661D798D46B5B41686E5</key>
+		<key>6AA2C31F16F8461E88A0E00D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3E7E62C6AFC47FA8389DD54</key>
+		<key>78FE138BFBD148B788582660</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7ACAD4814DF4A5498395672</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1B946953523471EB26EC7A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE369D1A57BD44C3BCD8CAF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B3021E019687927007B679C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3021DF19687927007B679C /* CoreLocation.framework */; };
 		3B3021E21968853A007B679C /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3021E11968853A007B679C /* EventKitUI.framework */; };
-		3B92332A19685E050037BA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332919685E050037BA47 /* Foundation.framework */; };
-		3B92332C19685E050037BA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332B19685E050037BA47 /* CoreGraphics.framework */; };
+		3B6787EA199EE6E900979AE9 /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787E9199EE6E900979AE9 /* BBConstants.m */; };
+		3B6787F0199EF85100979AE9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6787EF199EF85100979AE9 /* Twitter.framework */; };
+		3B6787F3199F0E8700979AE9 /* BBUniversity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787F2199F0E8700979AE9 /* BBUniversity.m */; };
+		3B6787FC199F10BD00979AE9 /* BBClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787FB199F10BD00979AE9 /* BBClass.m */; };
+		3B6787FF199F1BB200979AE9 /* BBPickUniversityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787FE199F1BB200979AE9 /* BBPickUniversityViewController.m */; };
+		3B678802199F1BCE00979AE9 /* BBPickClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B678801199F1BCE00979AE9 /* BBPickClassViewController.m */; };
+		3B678805199FCE8600979AE9 /* BBMeetupReasonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B678804199FCE8600979AE9 /* BBMeetupReasonViewController.m */; };
 		3B92332E19685E050037BA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332D19685E050037BA47 /* UIKit.framework */; };
 		3B92333419685E050037BA47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B92333219685E050037BA47 /* InfoPlist.strings */; };
 		3B92333619685E050037BA47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92333519685E050037BA47 /* main.m */; };
 		3B92333A19685E050037BA47 /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92333919685E050037BA47 /* BBAppDelegate.m */; };
 		3B92333C19685E050037BA47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B92333B19685E050037BA47 /* Images.xcassets */; };
 		3B92334319685E050037BA47 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92334219685E050037BA47 /* XCTest.framework */; };
-		3B92334419685E050037BA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332919685E050037BA47 /* Foundation.framework */; };
 		3B92334519685E050037BA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332D19685E050037BA47 /* UIKit.framework */; };
 		3B92334D19685E050037BA47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B92334B19685E050037BA47 /* InfoPlist.strings */; };
 		3B92334F19685E050037BA47 /* BetaBuildBBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92334E19685E050037BA47 /* BetaBuildBBTests.m */; };
@@ -51,11 +54,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B3021DF19687927007B679C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B3021E11968853A007B679C /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		3B6787E8199EE6E900979AE9 /* BBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstants.h; sourceTree = "<group>"; };
+		3B6787E9199EE6E900979AE9 /* BBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstants.m; sourceTree = "<group>"; };
+		3B6787EF199EF85100979AE9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		3B6787F1199F0E8700979AE9 /* BBUniversity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUniversity.h; sourceTree = "<group>"; };
+		3B6787F2199F0E8700979AE9 /* BBUniversity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUniversity.m; sourceTree = "<group>"; };
+		3B6787FA199F10BD00979AE9 /* BBClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBClass.h; sourceTree = "<group>"; };
+		3B6787FB199F10BD00979AE9 /* BBClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClass.m; sourceTree = "<group>"; };
+		3B6787FD199F1BB200979AE9 /* BBPickUniversityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPickUniversityViewController.h; sourceTree = "<group>"; };
+		3B6787FE199F1BB200979AE9 /* BBPickUniversityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPickUniversityViewController.m; sourceTree = "<group>"; };
+		3B678800199F1BCE00979AE9 /* BBPickClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPickClassViewController.h; sourceTree = "<group>"; };
+		3B678801199F1BCE00979AE9 /* BBPickClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPickClassViewController.m; sourceTree = "<group>"; };
+		3B678803199FCE8600979AE9 /* BBMeetupReasonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMeetupReasonViewController.h; sourceTree = "<group>"; };
+		3B678804199FCE8600979AE9 /* BBMeetupReasonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMeetupReasonViewController.m; sourceTree = "<group>"; };
 		3B92332619685E050037BA47 /* BetaBuildBB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaBuildBB.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B92332919685E050037BA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3B92332B19685E050037BA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3B92332D19685E050037BA47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B92333119685E050037BA47 /* BetaBuildBB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BetaBuildBB-Info.plist"; sourceTree = "<group>"; };
 		3B92333319685E050037BA47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -106,13 +119,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6787F0199EF85100979AE9 /* Twitter.framework in Frameworks */,
 				3B3021E21968853A007B679C /* EventKitUI.framework in Frameworks */,
 				F89B73CF198DA4F200F174AE /* CoreData.framework in Frameworks */,
 				774C2AF2197C8348006DCC87 /* MapKit.framework in Frameworks */,
-				3B3021E019687927007B679C /* CoreLocation.framework in Frameworks */,
-				3B92332C19685E050037BA47 /* CoreGraphics.framework in Frameworks */,
 				3B92332E19685E050037BA47 /* UIKit.framework in Frameworks */,
-				3B92332A19685E050037BA47 /* Foundation.framework in Frameworks */,
 				91E72CDBE84E42BDAC6F181B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +134,6 @@
 			files = (
 				3B92334319685E050037BA47 /* XCTest.framework in Frameworks */,
 				3B92334519685E050037BA47 /* UIKit.framework in Frameworks */,
-				3B92334419685E050037BA47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,12 +163,10 @@
 		3B92332819685E050037BA47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B6787EF199EF85100979AE9 /* Twitter.framework */,
 				F89B73CE198DA4F200F174AE /* CoreData.framework */,
 				774C2AF1197C8348006DCC87 /* MapKit.framework */,
 				3B3021E11968853A007B679C /* EventKitUI.framework */,
-				3B3021DF19687927007B679C /* CoreLocation.framework */,
-				3B92332919685E050037BA47 /* Foundation.framework */,
-				3B92332B19685E050037BA47 /* CoreGraphics.framework */,
 				3B92332D19685E050037BA47 /* UIKit.framework */,
 				3B92334219685E050037BA47 /* XCTest.framework */,
 				E94057B3393E422194634168 /* libPods.a */,
@@ -225,6 +233,12 @@
 				F89B73E5198EE81600F174AE /* BBFutureMeetingsTableViewController.m */,
 				F89B73E7198F056500F174AE /* BBEventDetailViewController.h */,
 				F89B73E8198F056500F174AE /* BBEventDetailViewController.m */,
+				3B6787FD199F1BB200979AE9 /* BBPickUniversityViewController.h */,
+				3B6787FE199F1BB200979AE9 /* BBPickUniversityViewController.m */,
+				3B678800199F1BCE00979AE9 /* BBPickClassViewController.h */,
+				3B678801199F1BCE00979AE9 /* BBPickClassViewController.m */,
+				3B678803199FCE8600979AE9 /* BBMeetupReasonViewController.h */,
+				3B678804199FCE8600979AE9 /* BBMeetupReasonViewController.m */,
 				7771A3CE1986AA3E00CD6BA8 /* Categories */,
 			);
 			name = Controllers;
@@ -275,6 +289,12 @@
 				F89B73DD198DB11F00F174AE /* Course.m */,
 				F89B73D9198DB11F00F174AE /* MeetUp.h */,
 				F89B73DA198DB11F00F174AE /* MeetUp.m */,
+				3B6787E8199EE6E900979AE9 /* BBConstants.h */,
+				3B6787E9199EE6E900979AE9 /* BBConstants.m */,
+				3B6787FA199F10BD00979AE9 /* BBClass.h */,
+				3B6787FB199F10BD00979AE9 /* BBClass.m */,
+				3B6787F1199F0E8700979AE9 /* BBUniversity.h */,
+				3B6787F2199F0E8700979AE9 /* BBUniversity.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -415,16 +435,22 @@
 				F89B73DE198DB11F00F174AE /* Course.m in Sources */,
 				F870DB75197C762500E1A779 /* BBRightDrawerTableViewController.m in Sources */,
 				3B92335C196861300037BA47 /* BBLoginRootViewController.m in Sources */,
+				3B6787EA199EE6E900979AE9 /* BBConstants.m in Sources */,
 				F89B73E9198F056500F174AE /* BBEventDetailViewController.m in Sources */,
 				774C2AED197C7B9A006DCC87 /* BBLeftDrawerTableViewController.m in Sources */,
+				3B678802199F1BCE00979AE9 /* BBPickClassViewController.m in Sources */,
 				3B92333A19685E050037BA47 /* BBAppDelegate.m in Sources */,
 				F89B73DB198DB11F00F174AE /* MeetUp.m in Sources */,
 				3B92333619685E050037BA47 /* main.m in Sources */,
+				3B6787FC199F10BD00979AE9 /* BBClass.m in Sources */,
 				F89B73E6198EE81600F174AE /* BBFutureMeetingsTableViewController.m in Sources */,
 				774C2AF5197C92B2006DCC87 /* BBCreateMeetingNowViewController.m in Sources */,
 				F89B73E1198DB11F00F174AE /* User.m in Sources */,
 				77401B7A198482CD000F34EA /* BBMeetupLocationDataStore.m in Sources */,
+				3B678805199FCE8600979AE9 /* BBMeetupReasonViewController.m in Sources */,
 				7771A3CD1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.m in Sources */,
+				3B6787FF199F1BB200979AE9 /* BBPickUniversityViewController.m in Sources */,
+				3B6787F3199F0E8700979AE9 /* BBUniversity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

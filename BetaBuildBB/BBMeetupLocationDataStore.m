@@ -10,6 +10,8 @@
 #import "User.h"
 #import "Course.h"
 #import "MeetUp.h"
+#import "BBUniversity.h"
+#import "BBClass.h"
 
 @implementation BBMeetupLocationDataStore
 //Synthesize managedObjectContext 
@@ -32,6 +34,8 @@
         _leftDrawerArray = [[NSMutableArray alloc]init];
         _rightDrawerArray = [[NSMutableArray alloc]init];
         _allMeetingsArray = [[NSMutableArray alloc]init];
+        _allUniversitiesArray = [[NSMutableArray alloc]init];
+        _selectedUniversityClasses = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -119,6 +123,52 @@
     }];
 }
 
+-(void)fetchUniversitiesFromParseWithCompletion:(void (^)(void))universitiesFetched { 
+    PFQuery *queryUniversities = [PFQuery queryWithClassName:@"University"];
+    self.allUniversitiesArray = [self clearArray];
+    [queryUniversities findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (PFObject *university in objects)
+            {
+                BBUniversity *newUni = [[BBUniversity alloc]initFromPFObject:university];
+                newUni.objectId = university.objectId;
+                [self.allUniversitiesArray addObject:newUni];
+            }
+            universitiesFetched();
+        }
+        else
+        {
+            NSLog(@"Parse error in datastore: %@", error.localizedDescription);
+        }
+    }];
+    
+}
+-(void)fetchClassesForUniversity:(BBUniversity *)university FromParse:(void (^)(void))classesFetched {
+    
+    PFQuery *queryClasses = [PFQuery queryWithClassName:@"Class"];
+    self.selectedUniversityClasses = [self clearArray];
+    [queryClasses findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (NSDictionary *class in objects)
+            {
+                BBClass *newClass = [[BBClass alloc]initFromDictionary:class];
+                [self.selectedUniversityClasses addObject:newClass];
+            }
+            classesFetched();
+        }
+        else
+        {
+            NSLog(@"Parse error in datastore: %@", error.localizedDescription);
+        }
+    }];
+    
+}
+
+-(NSMutableArray *)clearArray {
+    return [NSMutableArray new];
+}
 #pragma mark - Make managed objects
 
 -(User *)makeUserObject
