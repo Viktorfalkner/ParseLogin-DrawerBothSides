@@ -12,16 +12,17 @@
 
 - (instancetype)init
 {
-    return [self initWithName:@"" WithLocaiton:@""];
+    return [self initWithObjectId:@"" WithName:@"" WithLocaiton:@""];
 }
 
--(instancetype)initFromDictionary:(NSDictionary *)initDictionary {
+-(instancetype)initFromPFObject:(PFObject *)initDictionary {
+    NSString *objectId = initDictionary.objectId;
     NSString *name = initDictionary[@"name"];
     NSString *location = initDictionary[@"location"];
-    return [self initWithName:name WithLocaiton:location];
+    return [self initWithObjectId:objectId WithName:name WithLocaiton:location];
 }
 
--(instancetype)initWithName:(NSString *)initName WithLocaiton:(NSString *)initLocation {
+-(instancetype)initWithObjectId:(NSString *)initObjectId WithName:(NSString *)initName WithLocaiton:(NSString *)initLocation {
     self = [super init];
     if (self) {
         _name = initName;

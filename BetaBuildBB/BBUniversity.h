@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *location;
 
--(instancetype)initWithName:(NSString *)initName WithLocaiton:(NSString *)initLocation;
--(instancetype)initFromDictionary:(NSDictionary *)initDictionary;
+-(instancetype)initWithObjectId:(NSString *)initObjectId WithName:(NSString *)initName WithLocaiton:(NSString *)initLocation;
+-(instancetype)initFromPFObject:(PFObject *)initDictionary;
 
 @end

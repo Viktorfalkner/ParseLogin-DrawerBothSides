@@ -7,6 +7,8 @@
 //
 
 #import "BBCreateMeetingNowViewController.h"
+#import "BBUniversity.h"
+#import "BBClass.h"
 
 @interface BBCreateMeetingNowViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *meetupName;
@@ -62,6 +64,9 @@
     [super viewDidLoad];
 
     self.dataStore = [BBMeetupLocationDataStore sharedDataStore];
+    
+    NSString *classToDisplay = [NSString stringWithFormat:@"%@ %@", self.chosenClass.title, self.chosenUniversity.name];
+    self.meetupClass.text = classToDisplay;
     
     _passedMeetup = [MeetUp meetUpWithContext:self.dataStore.managedObjectContext]; 
 }

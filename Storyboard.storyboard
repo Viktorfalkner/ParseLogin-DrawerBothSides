@@ -250,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="1498" y="-233"/>
         </scene>
-        <!--View Controller-->
+        <!--Pick University View Controller-->
         <scene sceneID="Nc0-ry-hTR">
             <objects>
-                <viewController id="1Tz-JJ-u3s" sceneMemberID="viewController">
+                <viewController id="1Tz-JJ-u3s" customClass="BBPickUniversityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rRI-vA-giR"/>
                         <viewControllerLayoutGuide type="bottom" id="dHL-JE-MkX"/>
@@ -273,7 +273,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tgW-4C-3pz" kind="push" id="dbM-dD-neu"/>
+                                    <segue destination="tgW-4C-3pz" kind="push" identifier="universitySelected" id="dbM-dD-neu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick which University" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okB-sm-pDn">
@@ -287,15 +287,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZCV-u7-kXj"/>
+                    <connections>
+                        <outlet property="universityPicker" destination="vM7-9g-gpP" id="Jha-qP-q7v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7d-iO-xAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1498" y="445"/>
         </scene>
-        <!--View Controller-->
+        <!--Pick Class View Controller-->
         <scene sceneID="RQW-ar-FPs">
             <objects>
-                <viewController id="tgW-4C-3pz" sceneMemberID="viewController">
+                <viewController id="tgW-4C-3pz" customClass="BBPickClassViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E2A-Rj-6js"/>
                         <viewControllerLayoutGuide type="bottom" id="dS4-6I-ckS"/>
@@ -322,13 +325,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="eD7-x7-VMA" kind="push" id="we6-X4-urz"/>
+                                    <segue destination="eD7-x7-VMA" kind="push" identifier="classSelected" id="we6-X4-urz"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qao-Oe-A3V"/>
+                    <connections>
+                        <outlet property="classPicker" destination="7ZQ-K4-kii" id="6MR-fT-hGZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28P-zB-HI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

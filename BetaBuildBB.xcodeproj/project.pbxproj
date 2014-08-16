@@ -12,6 +12,8 @@
 		3B6787F0199EF85100979AE9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6787EF199EF85100979AE9 /* Twitter.framework */; };
 		3B6787F3199F0E8700979AE9 /* BBUniversity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787F2199F0E8700979AE9 /* BBUniversity.m */; };
 		3B6787FC199F10BD00979AE9 /* BBClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787FB199F10BD00979AE9 /* BBClass.m */; };
+		3B6787FF199F1BB200979AE9 /* BBPickUniversityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6787FE199F1BB200979AE9 /* BBPickUniversityViewController.m */; };
+		3B678802199F1BCE00979AE9 /* BBPickClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B678801199F1BCE00979AE9 /* BBPickClassViewController.m */; };
 		3B92332E19685E050037BA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B92332D19685E050037BA47 /* UIKit.framework */; };
 		3B92333419685E050037BA47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B92333219685E050037BA47 /* InfoPlist.strings */; };
 		3B92333619685E050037BA47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B92333519685E050037BA47 /* main.m */; };
@@ -59,6 +61,10 @@
 		3B6787F2199F0E8700979AE9 /* BBUniversity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUniversity.m; sourceTree = "<group>"; };
 		3B6787FA199F10BD00979AE9 /* BBClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBClass.h; sourceTree = "<group>"; };
 		3B6787FB199F10BD00979AE9 /* BBClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClass.m; sourceTree = "<group>"; };
+		3B6787FD199F1BB200979AE9 /* BBPickUniversityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPickUniversityViewController.h; sourceTree = "<group>"; };
+		3B6787FE199F1BB200979AE9 /* BBPickUniversityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPickUniversityViewController.m; sourceTree = "<group>"; };
+		3B678800199F1BCE00979AE9 /* BBPickClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPickClassViewController.h; sourceTree = "<group>"; };
+		3B678801199F1BCE00979AE9 /* BBPickClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPickClassViewController.m; sourceTree = "<group>"; };
 		3B92332619685E050037BA47 /* BetaBuildBB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaBuildBB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B92332D19685E050037BA47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B92333119685E050037BA47 /* BetaBuildBB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BetaBuildBB-Info.plist"; sourceTree = "<group>"; };
@@ -224,6 +230,10 @@
 				F89B73E5198EE81600F174AE /* BBFutureMeetingsTableViewController.m */,
 				F89B73E7198F056500F174AE /* BBEventDetailViewController.h */,
 				F89B73E8198F056500F174AE /* BBEventDetailViewController.m */,
+				3B6787FD199F1BB200979AE9 /* BBPickUniversityViewController.h */,
+				3B6787FE199F1BB200979AE9 /* BBPickUniversityViewController.m */,
+				3B678800199F1BCE00979AE9 /* BBPickClassViewController.h */,
+				3B678801199F1BCE00979AE9 /* BBPickClassViewController.m */,
 				7771A3CE1986AA3E00CD6BA8 /* Categories */,
 			);
 			name = Controllers;
@@ -423,6 +433,7 @@
 				3B6787EA199EE6E900979AE9 /* BBConstants.m in Sources */,
 				F89B73E9198F056500F174AE /* BBEventDetailViewController.m in Sources */,
 				774C2AED197C7B9A006DCC87 /* BBLeftDrawerTableViewController.m in Sources */,
+				3B678802199F1BCE00979AE9 /* BBPickClassViewController.m in Sources */,
 				3B92333A19685E050037BA47 /* BBAppDelegate.m in Sources */,
 				F89B73DB198DB11F00F174AE /* MeetUp.m in Sources */,
 				3B92333619685E050037BA47 /* main.m in Sources */,
@@ -432,6 +443,7 @@
 				F89B73E1198DB11F00F174AE /* User.m in Sources */,
 				77401B7A198482CD000F34EA /* BBMeetupLocationDataStore.m in Sources */,
 				7771A3CD1986A9F300CD6BA8 /* BBLoginRootViewController+BBDrawerControllers.m in Sources */,
+				3B6787FF199F1BB200979AE9 /* BBPickUniversityViewController.m in Sources */,
 				3B6787F3199F0E8700979AE9 /* BBUniversity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

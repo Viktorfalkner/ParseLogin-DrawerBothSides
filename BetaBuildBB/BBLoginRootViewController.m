@@ -75,6 +75,9 @@
     [self checkForLoggedInUser];
     
     [self.dataStore fetchAllMeetUpsFromParse];
+    [self.dataStore fetchUniversitiesFromParseWithCompletion:^{
+        NSLog(@"all universities fetched");
+    }];
     
     //Left Drawer Button
     self.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
