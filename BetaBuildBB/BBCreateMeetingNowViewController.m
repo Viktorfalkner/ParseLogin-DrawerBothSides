@@ -41,7 +41,7 @@
     [self.dataStore.meetUpsArray addObject:self.dataStore.userMeetup];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 
