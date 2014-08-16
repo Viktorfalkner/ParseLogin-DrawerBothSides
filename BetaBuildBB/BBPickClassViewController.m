@@ -70,6 +70,18 @@ numberOfRowsInComponent:(NSInteger)component
     return class.title;
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel *retval = (id)view;
+    if (!retval) {
+        retval= [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
+    }
+    BBClass *class = self.dataStore.selectedUniversityClasses[row];
+    retval.text = class.title;
+    //retval.font = [UIFont systemFontOfSize:18];
+    retval.adjustsFontSizeToFitWidth = YES;
+    return retval;
+}
+
 #pragma mark -
 #pragma mark PickerView Delegate
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row

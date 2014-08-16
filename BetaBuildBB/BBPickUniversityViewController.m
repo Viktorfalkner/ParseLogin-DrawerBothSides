@@ -67,7 +67,6 @@ numberOfRowsInComponent:(NSInteger)component
     return univerisity.name;
 }
 
-
 #pragma mark -
 #pragma mark PickerView Delegate
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
@@ -75,7 +74,6 @@ numberOfRowsInComponent:(NSInteger)component
 {
         self.chosenUniversity = self.dataStore.allUniversitiesArray[row];
 }
-
 
 #pragma mark - Navigation
 
